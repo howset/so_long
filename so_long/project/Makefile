@@ -2,89 +2,64 @@
 # Variables.
 
 ## Name
-NAME				= libft.a
+NAME-SL				= so_long
+NAME-LIBFT			= ./lib/libft.a
 
 ## Compiler, flags, & other commands
 CC 					= cc
-CFLAGS 				= -Wall -Werror -Wextra
+CFLAGS 				= -g -Wall -Werror -Wextra -I
 AR					= ar rcs
 RM					= rm -f
 
-## Directories
-DIR_LFT				= src/libft/
-DIR_FPF				= src/ft_printf/
-DIR_GNL				= src/get_next_line/
+## Sources & header
+SRC-PS				= ./src/push_swap.c \
+						./src/algo_radixsort.c \
+						./src/algo_simplesort.c \
+						./src/algo_simplesort_sort3.c \
+						./src/operations_push.c \
+						./src/operations_rotaterev.c \
+						./src/operations_rotate.c \
+						./src/operations_swap.c \
+						./src/utils_check.c \
+						./src/utils_free+print.c \
+						./src/utils_index.c \
+						./src/utils_lists.c
 
-## Sources
-SRC					= $(DIR_FPF)ft_printf.c \
-					$(DIR_FPF)ft_printf_c.c \
-					$(DIR_FPF)ft_printf_s.c \
-					$(DIR_FPF)ft_printf_di.c \
-					$(DIR_FPF)ft_printf_u.c \
-					$(DIR_FPF)ft_printf_p.c \
-					$(DIR_FPF)ft_printf_hex.c \
-					$(DIR_GNL)get_next_line.c \
-					$(DIR_GNL)get_next_line_utils.c \
-					$(DIR_GNL)get_next_line_bonus.c \
-					$(DIR_GNL)get_next_line_utils_bonus.c \
-					$(DIR_GNL)get_next_line.c \
-					$(DIR_LFT)ft_isalpha.c \
-					$(DIR_LFT)ft_isdigit.c \
-					$(DIR_LFT)ft_isalnum.c \
-					$(DIR_LFT)ft_isascii.c \
-					$(DIR_LFT)ft_isprint.c \
-					$(DIR_LFT)ft_strlen.c \
-					$(DIR_LFT)ft_memset.c \
-					$(DIR_LFT)ft_bzero.c \
-					$(DIR_LFT)ft_memcpy.c \
-					$(DIR_LFT)ft_memmove.c \
-					$(DIR_LFT)ft_strlcpy.c \
-					$(DIR_LFT)ft_strlcat.c \
-					$(DIR_LFT)ft_toupper.c \
-					$(DIR_LFT)ft_tolower.c \
-					$(DIR_LFT)ft_strchr.c \
-					$(DIR_LFT)ft_strrchr.c \
-					$(DIR_LFT)ft_strncmp.c \
-					$(DIR_LFT)ft_memchr.c \
-					$(DIR_LFT)ft_memcmp.c \
-					$(DIR_LFT)ft_strnstr.c \
-					$(DIR_LFT)ft_atoi.c \
-					$(DIR_LFT)ft_calloc.c \
-					$(DIR_LFT)ft_strdup.c \
-					$(DIR_LFT)ft_substr.c \
-					$(DIR_LFT)ft_strjoin.c \
-					$(DIR_LFT)ft_strtrim.c \
-					$(DIR_LFT)ft_split.c \
-					$(DIR_LFT)ft_itoa.c \
-					$(DIR_LFT)ft_strmapi.c \
-					$(DIR_LFT)ft_striteri.c \
-					$(DIR_LFT)ft_putchar_fd.c \
-					$(DIR_LFT)ft_putstr_fd.c \
-					$(DIR_LFT)ft_putendl_fd.c \
-					$(DIR_LFT)ft_putnbr_fd.c \
-					$(DIR_LFT)ft_atol.c \
+HEADER				= ./src/
 
-OBJ					= $(SRC:.c=.o)
-
+## Text colors
+RED					=	\033[1;31m
+GREEN				=	\033[1;32m
+COLOFF				=	\033[0m
 
 ##------------------------------------------------------------------##
 # Build rules
 
-all:				$(NAME)
+all:				$(NAME-LIBFT) $(NAME-SL)
 
-$(NAME):			$(OBJ)
-					@$(AR) $(NAME) $(OBJ)
-
-.c.o:
-					@$(CC) $(CFLAGS) -I./src -c $< -o $(<:.c=.o)
+#bonus:				$(NAME-LIBFT) $(NAME-CLIENTB) $(NAME-SERVERB)
 
 clean:
-					@$(RM) $(OBJ)
+					@$(RM) $(NAME-SL)
+					@echo "$(RED)So Long's gone, baby, gone!$(COLOFF)"
 
 fclean:				clean
-					@$(RM) $(NAME)
+					@make fclean -C ./lib
+					@echo "$(RED)Libft & friends are gone, baby, gone!$(COLOFF)"
 
 re:					fclean all
+
+re-bonus:			fclean bonus
+
+##------------------------------------------------------------------##
+# Targets
+$(NAME-LIBFT):
+		@make -C./lib
+		@echo "$(GREEN)Libft ready!$(COLOFF)"
+
+$(NAME-PS): ./src/push_swap.c $(NAME-LIBFT)
+		@$(CC) $(CFLAGS) $(HEADER) $(SRC-PS) $(NAME-LIBFT) -o $(NAME-PS)
+		@echo "$(GREEN)Push Swap ready!$(COLOFF)"
 
 ##------------------------------------------------------------------##
 #.PHONY
