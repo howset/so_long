@@ -96,8 +96,8 @@ $(NAME-LIBFT):
 		@echo "$(GREEN)Libft ready!$(COLOFF)"
 
 $(NAME-SL): ./src/so_long.c $(NAME-LIBFT) $(NAME-MLX)
-		@echo "$(YELLOW)Compiling So Long.$(COLOFF)"
-		$(CC) $(CFLAGS)$(HEADER) $(SRC-SL) $(NAME-LIBFT) $(NAME-MLX) \
+		@echo "$(YELLOW)Compiling so long.$(COLOFF)"
+		@$(CC) $(CFLAGS)$(HEADER) $(SRC-SL) $(NAME-LIBFT) $(NAME-MLX) \
 		-L${MLXDIR} $(MLXFLAGS) -o $(NAME-SL)
 		@echo "$(GREEN)So Long ready!$(COLOFF)"
 
