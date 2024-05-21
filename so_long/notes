@@ -27,3 +27,35 @@ Also, I don't know if it makes a difference, but maybe ensure that the last flag
 I do not know why you need the -lz flag, at least I didn't need it for fract-ol.
 
 MLXFLAGS			= -L./lib/minilibx-linux -llibmlx -Ilmlx -lbsd -lXext -lX11 -lm
+
+cc -g -Wall -Werror -Wextra -I./src/ ./src/so_long.c  ./lib/libft.a ./lib/minilibx-linux/libmlx.a \
+        -L./lib/minilibx-linux/  -o so_long --> fail with if
+
+cc -g -Wall -Werror -Wextra -I./src/ ./src/so_long.c  ./lib/libft.a ./lib/minilibx-linux/libmlx.a \
+        -L./lib/minilibx-linux/ -lmlx -lXext -lX11 -lm -o so_long --> works
+
+curl -0 "${MLXURL}" --output  "${MLXDIR}""${MLXARC}"; \
+curl -0 https://cdn.intra.42.fr/document/document/22379/minilibx-linux.tgz --output ./lib/minilibx-linux/minilibx-linux.tgz
+tar -xvf ./lib/minilibx-linux/minilibx-linux.tgz -C ./lib/minilibx-linux/
+
+if [ ! -d ./lib/minilibx-linux/ ]; then \
+mkdir ./lib/minilibx-linux/; \
+echo "$(YELLOW)Getting minilibx.$(COLOFF)"; \
+curl -0 https://cdn.intra.42.fr/document/document/22379/minilibx-linux.tgz --output ./lib/minilibx-linux/minilibx-linux.tgz; \
+tar -xvf ./lib/minilibx-linux/minilibx-linux.tgz -C ./lib/minilibx-linux/; \
+fi
+
+## Preparation, set up MLX
+UNAME				= $(shell uname)
+MLXGIT				= https://github.com/42Paris/minilibx-linux.git
+ifeq ($(UNAME), Darwin)
+	MLXTAR		= minilibx_opengl.tgz
+	MLXDIR		= ./lib/minilibx_opengl_20191021/ 
+	MLXURL		= "https://cdn.intra.42.fr/document/document/22380/minilibx_opengl.tgz"
+	MLXFLAGS 	= -lmlx -framework OpenGL -framework AppKit 
+else ifeq ($(UNAME), Linux)
+	MLXTAR		= minilibx-linux.tgz
+	MLXDIR		= ./lib/minilibx-linux/
+	MLXURL		= "https://cdn.intra.42.fr/document/document/22379/minilibx-linux.tgz"
+	MLXFLAGS 	= -lmlx -lXext -lX11 -lm
+endif
