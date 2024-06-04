@@ -7,12 +7,12 @@ UNAME				= $(shell uname)
 ifeq ($(UNAME), Darwin)
 	MLXTAR		= minilibx_opengl.tgz
 	MLXDIR		= ./lib/minilibx_opengl_20191021/ 
-	MLXURL		= "https://cdn.intra.42.fr/document/document/22380/minilibx_opengl.tgz"
+	MLXURL		= "https://cdn.intra.42.fr/document/document/21657/minilibx_opengl.tgz"
 	MLXFLAGS 	= -lmlx -framework OpenGL -framework AppKit 
 else ifeq ($(UNAME), Linux)
 	MLXTAR		= minilibx-linux.tgz
 	MLXDIR		= ./lib/minilibx-linux/
-	MLXURL		= "https://cdn.intra.42.fr/document/document/22379/minilibx-linux.tgz"
+	MLXURL		= "https://cdn.intra.42.fr/document/document/21656/minilibx-linux.tgz"
 	MLXFLAGS 	= -lmlx -lXext -lX11 -lm
 endif
 

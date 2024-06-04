@@ -6,7 +6,7 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 12:36:52 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/05/28 19:38:55 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/06/04 15:11:51 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <stdlib.h>
 # include <string.h>
+# include <X11/X.h>
+# include <X11/keysym.h>
 # include "../lib/minilibx-linux/mlx.h"
 
 typedef struct s_data
