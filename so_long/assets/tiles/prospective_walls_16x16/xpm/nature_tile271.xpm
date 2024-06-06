@@ -1,0 +1,27 @@
+/* XPM */
+static char *nature_tile271[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 5 1 ",
+"  c #141B1B",
+". c #4A7F4B",
+"X c #74A334",
+"o c #ADBC3A",
+"O c None",
+/* pixels */
+"OO            OO",
+"O oo ooo oo oo O",
+" oooXoooXooXooo ",
+" oooXXXXXXXXXXX ",
+" XXXXXXooXooooo ",
+" ooXooXooXoooXX ",
+" ooXooXXXXXXXoo ",
+" ooXXXXoooooXoo ",
+" XXXooXooXoo.XX ",
+" XXXXXXXXXXX.XX ",
+" XX.XXXXX.XX.XX ",
+" XX.XX.XX.XX.XX ",
+" XX.XX.XX.XX.XX ",
+" XX.XX.XX.XX.XX ",
+"O.X.XX.XX.XX.X.O",
+"OO............OO"
+};
