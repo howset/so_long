@@ -6,7 +6,7 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 17:28:53 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/06/04 15:48:45 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/06/06 17:47:48 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	main(void)
     data.mlx_ptr = mlx_init();
     if (data.mlx_ptr == NULL)
         return (1);
-    data.win_ptr = mlx_new_window(data.mlx_ptr, 800, 600, "Testing AB blog!");
+    data.win_ptr = mlx_new_window(data.mlx_ptr, 640, 360, "Testing AB blog!");
     if (data.win_ptr == NULL)
     {
         free(data.win_ptr);
