@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   so_long2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 17:28:53 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/05/21 16:36:00 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/06/07 14:21:33 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	main(void)
 	mlx_loop(mlx);
 } */
 
-t_win new_program(int w, int h, char *str)
+/* t_win new_program(int w, int h, char *str)
 {
 	void	*mlx_ptr;
 
@@ -68,6 +68,7 @@ int main(void)
 	 *		return (2);
 	 *	mlx_loop(mlx_ptr);
 	 **/
+	 /*
 	t_win tutorial;
 	
 	tutorial = new_program(600, 600, "New Program");
@@ -83,13 +84,65 @@ int main(void)
 		image_4x4.height = 4;
 		memcpy(image_4x4.addr, "s4vfs4vfs4vfs4vfs4vfs4vfs4vfs4vfs4vfs4vfs4vfs4vfs4vfs4vfs4vfs4vf", 16*4);
 		mlx_put_image_to_window (image_4x4.win.mlx_ptr, image_4x4.win.win_ptr, image_4x4.img_ptr, 10, 10);
-		/* printf("Let's Find out what's inside our structure :D\n");
-		printf("img_ptr		: [%p]\n", image_4x4.img_ptr);
-		printf("bpp		: [%d]\n", image_4x4.bpp);
-		printf("line_len	: [%d]\n", image_4x4.line_len);
-		printf("endian		: [%d]\n", image_4x4.endian);
-		printf("addr		: [%p]\n", image_4x4.addr); */
+		// printf("Let's Find out what's inside our structure :D\n");
+		// printf("img_ptr		: [%p]\n", image_4x4.img_ptr);
+		// printf("bpp		: [%d]\n", image_4x4.bpp);
+		// printf("line_len	: [%d]\n", image_4x4.line_len);
+		// printf("endian		: [%d]\n", image_4x4.endian);
+		// printf("addr		: [%p]\n", image_4x4.addr);
 	} 
 	mlx_loop(tutorial.mlx_ptr); 
 	return (0);
+}
+ */
+
+int on_destroy(t_data *data)
+{
+	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+	mlx_destroy_display(data->mlx_ptr);
+	free(data->mlx_ptr);
+	exit(0);
+	return (0);
+}
+
+int	handle_no_event(void)
+{
+    return (0);
+}
+
+/* int	handle_keypress(int keysym, t_data *data)
+{
+    if (keysym == XK_Escape)
+        mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+
+    printf("Keypress: %d\n", keysym);
+    return (0);
+} */
+
+int	handle_keyrelease(int keysym)
+{
+    printf("Keyrelease: %d\n", keysym);
+    return (0);
+}
+
+int	main(void)
+{
+    t_data	data;
+
+    data.mlx_ptr = mlx_init();
+    if (data.mlx_ptr == NULL)
+        return (1);
+    data.win_ptr = mlx_new_window(data.mlx_ptr, 640, 360, "Testing AB blog!");
+    if (data.win_ptr == NULL)
+    {
+        free(data.win_ptr);
+        return (1);
+    }
+    mlx_loop_hook(data.mlx_ptr, &handle_no_event, &data);
+    //mlx_hook(data.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &data); 
+    mlx_hook(data.win_ptr, KeyRelease, KeyReleaseMask, &handle_keyrelease, &data);
+	mlx_hook(data.win_ptr, DestroyNotify, StructureNotifyMask, &on_destroy, &data);
+    mlx_loop(data.mlx_ptr);
+    mlx_destroy_display(data.mlx_ptr);
+    free(data.mlx_ptr);
 }
