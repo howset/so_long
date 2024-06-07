@@ -1,0 +1,38 @@
+/* XPM */
+static char *thunder2[] = {
+/* columns rows colors chars-per-pixel */
+"20 28 4 1 ",
+"  c #FFAD5D",
+". c #FFE18D",
+"X c white",
+"o c None",
+/* pixels */
+"oooooooooooooooooooo",
+"ooooooooooo oooooooo",
+"oooooooooo . ooooooo",
+"ooooooooo . oooooooo",
+"oooooooo . ooooooooo",
+"ooooooooo oooooooooo",
+"oo....oooooooooooooo",
+"o.XXXX..oooooooooooo",
+"oo..XXXX...ooooooooo",
+"oooo..XXXXX..ooooooo",
+"oooooo..XXXXX.oooooo",
+"oooooooo..XXXX.ooooo",
+"oooooooooo.XXXX.oooo",
+"ooooooooooo.XXXX.ooo",
+"oooooooooooo.XXXX.oo",
+"ooooooooooo.XXXXXX.o",
+"oooooooooo.XXXXXXXX.",
+"ooooooooo.XXXXXXX..o",
+"oooooooo.XXXXX...ooo",
+"ooooooo.XXX...oooooo",
+"oooooo.XX..ooooooooo",
+"ooooooo..ooooooooooo",
+"oooooooooooooooooooo",
+"oooooooooooooooooooo",
+"oooooooooooooooooooo",
+"oooooooooooooooooooo",
+"oooooooooooooooooooo",
+"oooooooooooooooooooo"
+};

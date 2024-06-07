@@ -1,0 +1,26 @@
+/* XPM */
+static char *chest0[] = {
+/* columns rows colors chars-per-pixel */
+"16 14 6 1 ",
+"  c #141B1B",
+". c #8F3E56",
+"X c #E0394C",
+"o c #FFAD5D",
+"O c #FFE18D",
+"+ c None",
+/* pixels */
+"++++++++++++++++",
+"++++++++++++++++",
+"+              +",
+"+ XXXXXXXXXXX. +",
+"+ XOOXXXXXXXX. +",
+"  XXXXXXXXXXX.  ",
+" oXXXXXXXXXXX.X ",
+" oXXX......XX.X ",
+" O....Oooo....X ",
+" Oooooo  oooooo ",
+"  ....oooo....  ",
+"+ XXX......... +",
+"+ XXXXXXXXXXX. +",
+"+              +"
+};

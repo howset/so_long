@@ -1,0 +1,26 @@
+/* XPM */
+static char *firewood[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 4 1 ",
+"  c #141B1B",
+". c #E46D3A",
+"X c #965746",
+"o c None",
+/* pixels */
+"oooooooooooooooo",
+"oooooo   ooooooo",
+"ooooo ... oooooo",
+"ooooo ... o    o",
+"    o ...   X. o",
+" ...  X.. X...oo",
+" ......XXX...ooo",
+" XX....XX...   o",
+"ooo  XXX...X.. o",
+" .....X...X... o",
+" .... ...XXXXX o",
+" XXX ...X... ooo",
+"ooo ...X .... oo",
+"ooo ...Xoo.... o",
+"ooo ..Xoooo... o",
+"oooooooooooooooo"
+};

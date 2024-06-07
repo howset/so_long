@@ -1,0 +1,27 @@
+/* XPM */
+static char *interior_tile324[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 5 1 ",
+"  c #4E484A",
+". c #3B3643",
+"X c #695953",
+"o c #816855",
+"O c white",
+/* pixels */
+"             ...",
+" XXXXX   XXXX ..",
+"XXXXXXX XXXXX  .",
+"XXXXXXX XXXXXXX ",
+" XXXXX   XXXXX  ",
+"                ",
+"XXX   ooooo   XX",
+"XXXX ooooooo XXX",
+"XXXX ooooooo XXX",
+"XXX   ooooo   XX",
+"                ",
+"  XXXXX   XXXXX ",
+" XXXXXXX XXXXXXX",
+" XXXXXXX XXXXXXX",
+"  XXXXX   XXXXX ",
+"                "
+};

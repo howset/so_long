@@ -1,0 +1,29 @@
+/* XPM */
+static char *nb_dead[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 7 1 ",
+"  c #141B1B",
+". c #4E484A",
+"X c #5F7160",
+"o c #E46D3A",
+"O c #6F805B",
+"+ c #FFAD5D",
+"@ c None",
+/* pixels */
+"@@@@@@@@@@@@@@@@",
+"@@@@@@@@@@@@@@@@",
+"@@@@@@@@@@@ @ @@",
+"@@@@@@@@@@ + + @",
+"@@@@        o++ ",
+"@@@ XXXXXXXX o @",
+"@@ XXOOXOXXX.o+ ",
+"@ .XXOOXXXXXX  @",
+"@ .XXXXXXXXXX. @",
+"@ .XXXXXXXXXX. @",
+" ..XXXXXXXXXX.. ",
+" ...X      X... ",
+" X...  XX  ...X ",
+" XX..........XX ",
+" XX.  .....  XX ",
+"@...@@@@@@@@@..@"
+};

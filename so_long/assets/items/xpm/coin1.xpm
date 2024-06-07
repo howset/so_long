@@ -1,0 +1,21 @@
+/* XPM */
+static char *coin1[] = {
+/* columns rows colors chars-per-pixel */
+"10 10 5 1 ",
+"  c #141B1B",
+". c #E46D3A",
+"X c #FFAD5D",
+"o c #F2EAF1",
+"O c None",
+/* pixels */
+"OOO   OOOO",
+"OO .oX OOO",
+"O .o..X OO",
+" .X....X O",
+" .X....X O",
+" .X....X O",
+" .X....X O",
+"O .X..X OO",
+"OO .XX OOO",
+"OOO   OOOO"
+};

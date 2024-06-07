@@ -1,0 +1,22 @@
+/* XPM */
+static char *fire5[] = {
+/* columns rows colors chars-per-pixel */
+"8 12 4 1 ",
+"  c #E46D3A",
+". c #FF9554",
+"X c #FFE18D",
+"o c None",
+/* pixels */
+"oooooooo",
+"oooooooo",
+"   ooooo",
+"o   oooo",
+"o    ooo",
+"  ..  oo",
+" .... oo",
+"..XX. oo",
+".XXXX.oo",
+".XXXX.oo",
+"o.XX..oo",
+"oo...ooo"
+};

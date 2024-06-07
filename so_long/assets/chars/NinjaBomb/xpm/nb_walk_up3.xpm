@@ -1,0 +1,30 @@
+/* XPM */
+static char *nb_walk_up3[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 8 1 ",
+"  c #141B1B",
+". c #4E484A",
+"X c #5F7160",
+"o c #E46D3A",
+"O c #6F805B",
+"+ c #FFAD5D",
+"@ c #C8966B",
+"# c None",
+/* pixels */
+"## # ###########",
+"# + o       ####",
+" ++oo XXXXXX ###",
+"# ooo@XOXOOXX ##",
+" oooo@XXXOOXX. #",
+"#  @@XXXXXXXX. #",
+"# ..XXXXXXXX.. #",
+"# ............ #",
+"# ............ #",
+"# ............ #",
+"#  .......... ##",
+"# ........XX  ##",
+"##  .XXXX.XXX ##",
+"### .....  XX ##",
+"### XXXX ##  ###",
+"#### XX ########"
+};

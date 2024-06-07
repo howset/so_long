@@ -1,0 +1,24 @@
+/* XPM */
+static char *floor_tile429[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 2 1 ",
+"  c #B3957F",
+". c white",
+/* pixels */
+"                ",
+"                ",
+"                ",
+"                ",
+"                ",
+"                ",
+"                ",
+"                ",
+"                ",
+"                ",
+"                ",
+"                ",
+"                ",
+"                ",
+"                ",
+"                "
+};

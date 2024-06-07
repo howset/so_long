@@ -1,0 +1,29 @@
+/* XPM */
+static char *cow_front1[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 7 1 ",
+"  c #141B1B",
+". c #4E484A",
+"X c #5F7160",
+"o c #F2AD7D",
+"O c #D3A2C0",
+"+ c #F2EAF1",
+"@ c None",
+/* pixels */
+"@@@@@@@@@@@@@@@@",
+"@@@@@      @@@@@",
+"@@@  X+++++  @@@",
+"@  XX ++++ ++  @",
+" ++  o    o  XX ",
+" ++++o++++o+XXX ",
+"  +O++++++++.X  ",
+" X +++ ++ +++ + ",
+" X +++ ++ +++ + ",
+" + ++++++++++ + ",
+" +O++oooooo++O+ ",
+"@ O oo oo oo O @",
+"@ O oooooooo O @",
+"@@ O        O @@",
+"@@@ OOOOOOOO @@@",
+"@@@@        @@@@"
+};

@@ -1,0 +1,22 @@
+/* XPM */
+static char *fire[] = {
+/* columns rows colors chars-per-pixel */
+"96 12 4 1 ",
+"  c #E46D3A",
+". c #FF9554",
+"X c #FFE18D",
+"o c None",
+/* pixels */
+"ooo.oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+"oo.X.ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+"oo.X.oooooooooooooo oooooooooooooo ooooo   oooooo   oooooooooooooooooooooooooooooooooooooooooooo",
+"o.XXX.ooooo.oooooo   ooooo   oooo  oooooo   oooooo   ooooo   ooooooooooooooooooooooooooooooooooo",
+"o.XXX.oooo.X.ooooo   oooo   oooo    ooooo    ooooo    ooooo   oooo  oooooooooooooooooooooooooooo",
+"o.XXX.ooo.XXX.oooo .. oo ..  ooo ..  ooo  ..  ooo  .  ooo     ooooo  ooooo   ooooooooooooooooooo",
+"o.XXX.ooo.XXX.ooo .... o .... oo ...  oo .... oo  ... oo   .. oooo    ooooo   oooo   ooooooooooo",
+"o.XXX.oo.XXXXX.o ..... o..XX..oo..X.. oo..XX. oo ..X. oo .... ooo  .. oooo .. ooooo   oooooo ooo",
+"o.XXX.oo.XXXXX.o..XX...o.XXXX..o.XXX..oo.XXXX.oo..XXX.oo..XX..ooo..X..ooo ....oooo .. ooooo   oo",
+"o.XXX.oo..XXX..o.XXXX..o.XXXX..o.XXX..oo.XXXX.oo.XXXX.oo.XXXX.ooo.XXX.ooo..X..oooo .. ooooo   oo",
+"oo.X.oooo.....ooo.XX..ooo.XX..ooo.X...ooo.XX..ooo.XX..ooo.XX..ooo..X..oooo...oooooo  ooooooo ooo",
+"ooo.oooooo...ooooo...ooooo...ooooo...ooooo...ooooo...ooooo...ooooo...ooooooooooooooooooooooooooo"
+};

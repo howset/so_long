@@ -1,0 +1,25 @@
+/* XPM */
+static char *field_tile036[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 3 1 ",
+"  c #74A334",
+". c #4A7F4B",
+"X c white",
+/* pixels */
+"                ",
+"                ",
+"                ",
+"                ",
+"    .           ",
+"     .          ",
+"                ",
+"                ",
+"          .     ",
+"         .      ",
+"                ",
+"                ",
+"                ",
+"                ",
+"                ",
+"                "
+};
