@@ -46,7 +46,7 @@ int	print_uint(unsigned int n)
 	return (len);
 }
 
-int	print_add(uintptr_t num)
+int	print_add(intptr_t num)
 {
 	int		length;
 	int		reminder;

@@ -79,7 +79,7 @@ all: $(LIB)
 	cd mlx && make
 	cd get_next_line && make
 	cd printf && make
-	@$(CC) $(CFLAGS) ./src/maps.c $(LIB) ./get_next_line/gnl.a ./printf/libftprintf.a -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	@$(CC) $(CFLAGS) ./src/maps.c $(LIB) ./get_next_line/gnl.a ./printf/libftprintf.a -Lmlx -lmlx -lXext -lX11 -o $(NAME)
 
 $(LIB): $(OBJ)
 	@ar -rcs $(LIB) $(OBJ)

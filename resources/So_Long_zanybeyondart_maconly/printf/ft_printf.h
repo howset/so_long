@@ -30,7 +30,7 @@ int		print_hex(unsigned int num, char c);
 int		print_str(const char *str);
 int		print_int(int a);
 int		print_uint(unsigned int n);
-int		print_add(uintptr_t num);
+int		print_add(intptr_t num);
 int		print_hex(unsigned int num, char c);
 int		ft_hex_helper(unsigned int num, char c);
 

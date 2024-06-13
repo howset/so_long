@@ -18,7 +18,7 @@ int	print_char(char c)
 	return (1);
 }
 
-int	add(uintptr_t num)
+int	add(intptr_t num)
 {
 	int		length;
 	int		remainder;

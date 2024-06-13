@@ -21,6 +21,8 @@
 	"peacock.color": "#42b883",
 	"files.associations": {
 		"so_long.h": "c",
-		"mlx.h": "c"
+		"mlx.h": "c",
+		"get_next_line.h": "c",
+		"stdio.h": "c"
 	}
 }
