@@ -6,7 +6,7 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 12:36:52 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/06/13 17:13:51 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/06/13 19:26:28 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,44 @@
 # define RED_PIXEL 0xFF0000
 # define YELLOW_PIXEL 0xFFFF00
 # define GREY_PIXEL 0x808080
-# define PLAYER_XPM	"./assets/cavegirl/cg_idle0.xpm"
+# define PLAYER_XPM	"./assets/sprites/xpm/cow_front0.xpm"
+
+# define SPR_HEIGHT			64
+# define SPR_WIDTH			64
+# define WALL				'1'
+# define FLOO				'0'
+# define COLL				'C'
+# define PLAY				'P'
+# define EXIT			 	'E'
+# define SNEK			 	'S'
+
+# define XPM_WALL			"./assets/sprites/xpm/nature_tile203.xpm"
+# define XPM_FLOO			"./assets/sprites/xpm/floor_tile268.xpm"
+# define XPM_PLAY_UP_0		"./assets/sprites/xpm/cg_walk_up0.xpm"
+# define XPM_PLAY_UP_1		"./assets/sprites/xpm/cg_walk_up1.xpm"
+# define XPM_PLAY_UP_2		"./assets/sprites/xpm/cg_walk_up2.xpm"
+# define XPM_PLAY_UP_3		"./assets/sprites/xpm/cg_walk_up3.xpm"
+# define XPM_PLAY_DOWN_0	"./assets/sprites/xpm/cg_walk_down0.xpm"
+# define XPM_PLAY_DOWN_1	"./assets/sprites/xpm/cg_walk_down1.xpm"
+# define XPM_PLAY_DOWN_2	"./assets/sprites/xpm/cg_walk_down2.xpm"
+# define XPM_PLAY_DOWN_3	"./assets/sprites/xpm/cg_walk_down3.xpm"
+# define XPM_PLAY_LEFT_0	"./assets/sprites/xpm/cg_walk_left0.xpm"
+# define XPM_PLAY_LEFT_1	"./assets/sprites/xpm/cg_walk_left1.xpm"
+# define XPM_PLAY_LEFT_2	"./assets/sprites/xpm/cg_walk_left2.xpm"
+# define XPM_PLAY_LEFT_3	"./assets/sprites/xpm/cg_walk_left3.xpm"
+# define XPM_PLAY_RIGHT_0	"./assets/sprites/xpm/cg_walk_right0.xpm"
+# define XPM_PLAY_RIGHT_1	"./assets/sprites/xpm/cg_walk_right1.xpm"
+# define XPM_PLAY_RIGHT_2	"./assets/sprites/xpm/cg_walk_right2.xpm"
+# define XPM_PLAY_RIGHT_3	"./assets/sprites/xpm/cg_walk_right3.xpm"
+# define XPM_PLAY_WIN		"./assets/sprites/xpm/cg_item.xpm"
+# define XPM_PLAY_DEAD		"./assets/sprites/xpm/cg_dead.xpm"
+# define XPM_COLL_0			"./assets/sprites/xpm/cow_front0.xpm"
+# define XPM_COLL_1			"./assets/sprites/xpm/cow_front1.xpm"
+# define XPM_EXIT			"./assets/sprites/xpm/firewood.xpm"
+# define XPM_SNEK_0			"./assets/sprites/xpm/snake_right0.xpm"
+# define XPM_SNEK_1			"./assets/sprites/xpm/snake_right1.xpm"
+# define XPM_SNEK_2			"./assets/sprites/xpm/snake_right2.xpm"
+# define XPM_SNEK_3			"./assets/sprites/xpm/snake_right3.xpm"
 
 typedef struct s_img
 {
@@ -56,5 +93,15 @@ typedef struct s_rect
     int height;
     int color;
 }	t_rect;
+
+typedef struct s_sprite
+{
+	void	*spr;
+    int	x;
+    int	y;
+    int width;
+    int height;
+    int color;
+}	t_sprite;
 
 #endif
