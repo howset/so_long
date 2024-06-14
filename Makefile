@@ -23,6 +23,9 @@ NAME-MLX			= $(MLXDIR)libmlx.a
 
 ## Sources & headers & others
 SRC-SL				= ./src/so_long.c \
+						./src/utils.c \
+						./src/keys.c \
+						./src/rendering.c \
 #						./src/algo_radixsort.c \
 #						./src/algo_simplesort.c \
 #						./src/algo_simplesort_sort3.c \

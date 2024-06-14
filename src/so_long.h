@@ -6,7 +6,7 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 12:36:52 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/06/14 14:51:27 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/06/14 16:26:22 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,4 +104,16 @@ typedef struct s_sprite
 	int frame;
 }	t_sprite;
 
+//utils.c
+int on_destroy(t_data *data);
+void	img_pix_put(t_img *img, int x, int y, int color);
+//keys.c
+int	handle_keypress(int keysym);
+int	handle_keyrelease(int keysym, t_data *data);
+//rendering.c
+void	render_background(t_img *img, int color);
+int render_rect(t_img *img, t_rect rect);
+int	render_sprite(t_img *img, void *mlx_ptr, t_sprite sprite);
+int	render(t_data *data);
+//so_long.c
 #endif
