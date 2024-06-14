@@ -6,7 +6,7 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 16:20:57 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/06/14 16:24:15 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/06/14 18:38:39 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,28 +43,32 @@ int render_rect(t_img *img, t_rect rect)
 	return (0);
 }
 
-/* int	render_sprite(t_data **data, t_sprite sprite)
+/* int	render_sprite(t_win **data, t_sprite sprite)
 {
 	(*data)->img.mlx_img = mlx_xpm_file_to_image((*data)->mlx_ptr, sprite.filename, &sprite.width, &sprite.height);
 	return (0);
 } */
 
-int	render_sprite(t_img *img, void *mlx_ptr, t_sprite sprite)
+int	render_sprite(t_win *data, t_sprite sprite)
 {
-	img = mlx_xpm_file_to_image(mlx_ptr, sprite.filename, &sprite.width, &sprite.height);
+	sprite.img_spr = mlx_xpm_file_to_image(&data->mlx_ptr, sprite.filename, &sprite.width, &sprite.height);
 	return (0);
 }
 
-int	render(t_data *data)
+int	render(t_win *data)
 {
+	t_img	bg;
+	t_img	spr;
+
 	if (data->win_ptr == NULL)
 		return (1);
-	//render_background(&data->img, GREY_PIXEL);
+	render_background(bg.img, GREY_PIXEL);
 	//render_rect(&data->img, (t_rect){100, 100,
 			//100, 100, YELLOW_PIXEL});
 	//render_rect(&data->img, (t_rect){0, 0, 100, 100, RED_PIXEL});
-	render_sprite(&data->img, &data->mlx_ptr, (t_sprite){XPM_FLOO, 0, 0, 0});
+	//render_sprite(&data->img, &data->mlx_ptr, (t_sprite){XPM_FLOO, 0, 0, 0});
 	//render_sprite(data, (t_sprite){XPM_WALL, 0, 0, 0});
+	//render_sprite()
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.mlx_img, 0, 0);
 	return (0);
 }

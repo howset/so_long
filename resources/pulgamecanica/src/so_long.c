@@ -6,7 +6,7 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 17:28:53 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/06/14 16:10:42 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/06/14 18:18:12 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,37 @@ void	destroy_image(t_img img) {
 		mlx_destroy_image(img.win.mlx_ptr, img.img_ptr);
 }
 
-t_sprite	new_sprite(char * name, char * file_path, t_win * win) {
+t_sprite	new_sprite(char * name, char/* int main(void)
+{
+    void *mlx; // The magical mlx pointer
+    void *win; // The window pointer
+    void *img; // The sprite image pointer
+    int width; // Width of the sprite
+    int height; // Height of the sprite
+    int frame = 1; // Current frame of the sprite animation
+
+    mlx = mlx_init(); // Initialize mlx
+    win = mlx_new_window(mlx, WIN_WIDTH, WIN_HEIGHT, "Sprite Animation Ritual"); // Create a window
+
+    // The animation loop
+    while (1) {
+        // Load the current frame of your sprite animation
+        char frame_filename[100]; // Assuming frame filenames are like "frame1.xpm", "frame2.xpm", etc.
+        sprintf(frame_filename, PLAYER_XPM);
+        img = mlx_xpm_file_to_image(mlx, frame_filename, &width, &height);
+
+        // Display the sprite on the window
+        mlx_put_image_to_window(mlx, win, img, 100, 100);
+
+        // Update the frame for the next iteration
+        frame = (frame % 4) + 1; // Change frame from 1 to NUM_FRAMES and loop back
+
+        // Adjust the frame rate for your desired animation speed
+        usleep(100000); // Sleep for 0.1 seconds (adjust as needed)
+    }
+
+    return 0;
+} */ * file_path, t_win * win) {
 	t_img	img;
 
 	img = new_file_img(file_path, *win);

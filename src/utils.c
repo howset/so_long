@@ -6,13 +6,13 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 16:22:37 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/06/14 16:23:04 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/06/14 18:29:36 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int on_destroy(t_data *data)
+int on_destroy(t_win *data)
 {
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	mlx_destroy_display(data->mlx_ptr);

@@ -6,7 +6,7 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 17:28:53 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/06/14 16:30:23 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/06/14 18:41:13 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,26 @@
 
 int	main(void)
 {
-	t_data	data;
+	t_win	window;
 
-	data.mlx_ptr = mlx_init();
-	if (data.mlx_ptr == NULL)
+	window.mlx_ptr = mlx_init();
+	if (window.mlx_ptr == NULL)
 		return (1);
-	data.win_ptr = mlx_new_window(data.mlx_ptr, WIN_WIDTH, WIN_HEIGHT, "Putting xpms");
-	if (data.win_ptr == NULL)
+	window.win_ptr = mlx_new_window(window.mlx_ptr, WIN_WIDTH, WIN_HEIGHT, "Putting xpms");
+	if (window.win_ptr == NULL)
 	{
-		free(data.win_ptr);
+		free(window.win_ptr);
 		return (1);
 	}
-	data.img.mlx_img = mlx_new_image(data.mlx_ptr, WIN_WIDTH, WIN_HEIGHT);
-	data.img.addr = mlx_get_data_addr(data.img.mlx_img, &data.img.bpp,
-			&data.img.line_len, &data.img.endian);	
-	mlx_loop_hook(data.mlx_ptr, &render, &data);
-	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &data); 
-	mlx_hook(data.win_ptr, KeyRelease, KeyReleaseMask, &handle_keyrelease, &data);
-	mlx_hook(data.win_ptr, DestroyNotify, StructureNotifyMask, &on_destroy, &data);
-	mlx_loop(data.mlx_ptr);
-	mlx_destroy_image(data.mlx_ptr, data.img.mlx_img);
-	mlx_destroy_display(data.mlx_ptr);
-	free(data.mlx_ptr);
+	// window.img.mlx_img = mlx_new_image(window.mlx_ptr, WIN_WIDTH, WIN_HEIGHT);
+	// window.img.addr = mlx_get_win_addr(window.img.mlx_img, &window.img.bpp,
+	// 		&window.img.line_len, &window.img.endian);
+	// mlx_loop_hook(window.mlx_ptr, &render, &window);
+	// mlx_hook(window.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &window); 
+	// mlx_hook(window.win_ptr, KeyRelease, KeyReleaseMask, &handle_keyrelease, &window);
+	// mlx_hook(window.win_ptr, DestroyNotify, StructureNotifyMask, &on_destroy, &window);
+	// mlx_loop(window.mlx_ptr);
+	// mlx_destroy_image(window.mlx_ptr, window.img.mlx_img);
+	// mlx_destroy_display(window.mlx_ptr);
+	// free(window.mlx_ptr);
 }

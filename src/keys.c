@@ -6,7 +6,7 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 16:21:56 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/06/14 16:22:09 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/06/14 18:29:38 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	handle_keypress(int keysym)
 	return (0);
 }
 
-int	handle_keyrelease(int keysym, t_data *data)
+int	handle_keyrelease(int keysym, t_win *data)
 {
 	if (keysym == XK_Escape)
 	{

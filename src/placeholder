@@ -1,3 +1,33 @@
+#include "so_long.h"
+
+int	main(void)
+{
+	t_data	data;
+
+	data.mlx_ptr = mlx_init();
+	if (data.mlx_ptr == NULL)
+		return (1);
+	data.win_ptr = mlx_new_window(data.mlx_ptr, WIN_WIDTH, WIN_HEIGHT, "Putting xpms");
+	if (data.win_ptr == NULL)
+	{
+		free(data.win_ptr);
+		return (1);
+	}
+	data.img.mlx_img = mlx_new_image(data.mlx_ptr, WIN_WIDTH, WIN_HEIGHT);
+	data.img.addr = mlx_get_data_addr(data.img.mlx_img, &data.img.bpp,
+			&data.img.line_len, &data.img.endian);
+	mlx_loop_hook(data.mlx_ptr, &render, &data);
+	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &data); 
+	mlx_hook(data.win_ptr, KeyRelease, KeyReleaseMask, &handle_keyrelease, &data);
+	mlx_hook(data.win_ptr, DestroyNotify, StructureNotifyMask, &on_destroy, &data);
+	mlx_loop(data.mlx_ptr);
+	mlx_destroy_image(data.mlx_ptr, data.img.mlx_img);
+	mlx_destroy_display(data.mlx_ptr);
+	free(data.mlx_ptr);
+}
+
+
+//.h
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -6,7 +36,7 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 12:36:52 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/06/14 18:42:08 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/06/14 18:25:59 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,28 +97,23 @@
 # define XPM_SNEK_2			"./assets/sprites/xpm/snake_right2.xpm"
 # define XPM_SNEK_3			"./assets/sprites/xpm/snake_right3.xpm"
 
-typedef struct s_win
+typedef struct s_img
+{
+    void	*mlx_img;
+    char	*addr;
+    int		bpp; /* bits per pixel */
+    int		line_len;
+    int		endian;
+}	t_img;
+
+typedef struct s_data
 {
 	void		*mlx_ptr; // MLX pointer
 	void		*win_ptr; // MLX window pointer
 	//void		*textures[5]; // MLX image pointers (on the stack)
 	//t_map		*map; // Map pointer (contains map details - preferably kept on the stack)
-	int			win_width;
-	int			win_height;
-	//t_img	img; //temp, ab blog
-}	t_win;
-
-typedef struct s_img
-{
-    t_win	win;
-	void	*mlx_img;
-    char	*addr;
-    int		bpp; /* bits per pixel */
-    int		line_len;
-    int		endian;
-	int		img_width;
-	int		img_height;
-}	t_img;
+	t_img	img; //temp, ab blog
+}	t_data;
 
 typedef struct s_rect
 {
@@ -110,16 +135,16 @@ typedef struct s_rect
 	t_img img_spr;
 }	t_sprite; */
 
-/* //utils.c
-int on_destroy(t_win *data);
+//utils.c
+int on_destroy(t_data *data);
 void	img_pix_put(t_img *img, int x, int y, int color);
 //keys.c
 int	handle_keypress(int keysym);
-int	handle_keyrelease(int keysym, t_win *data);
+int	handle_keyrelease(int keysym, t_data *data);
 //rendering.c
 void	render_background(t_img *img, int color);
 int render_rect(t_img *img, t_rect rect);
 int	render_sprite(t_img *img, void *mlx_ptr, t_sprite sprite);
-int	render(t_win *data);
-//so_long.c */
+int	render(t_data *data);
+//so_long.c
 #endif
