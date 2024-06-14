@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: hsetyamu <hsetyamu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:02:00 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/05/08 16:03:16 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/01/11 12:47:07 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char *nptr)
 {
-	int		res;
-	int		i;
-	int		sign;
+	int	res;
+	int	i;
+	int	sign;
 
 	i = 0;
 	res = 0;
