@@ -7,8 +7,8 @@
 - ~~put pixel to window.~~
 - ~~put xpm to window.~~
 - combine both in the same window.
-- parse args.
-- parse map.
+- parse args. - just check # of args and file extension
+- parse map.- use gnl?
 
 to check:
 - https://github.com/PandeoF1/42-so_long - funny so bad
