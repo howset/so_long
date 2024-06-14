@@ -6,7 +6,7 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 12:36:52 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/06/13 19:26:28 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/06/14 14:51:27 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,12 +96,12 @@ typedef struct s_rect
 
 typedef struct s_sprite
 {
-	void	*spr;
-    int	x;
-    int	y;
+    //int	x;
+    //int	y;
+	char	*filename;
     int width;
     int height;
-    int color;
+	int frame;
 }	t_sprite;
 
 #endif
