@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: hsetya <hsetya@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 12:36:52 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/06/17 12:36:13 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/06/18 10:28:44 by hsetya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ typedef struct s_sl
 	int			win_height;
 	//t_img		rect; //temp, ab blog
 	t_img		bg;
+	t_img		layer1;
 }	t_sl;
 
 typedef struct s_rect
@@ -101,7 +102,9 @@ typedef struct s_rect
 
 typedef struct s_xpm
 {
-    int width;
+    int x;
+	int y;
+	int width;
     int height;
 }	t_xpm;
 
@@ -114,7 +117,7 @@ int	handle_keyrelease(int keysym, t_sl *sl);
 //rendering.c
 void	render_background(t_img *img, int color);
 int render_rect(t_img *img, t_rect rect);
-int	render_sprite(t_sl **sl, t_xpm xpm);
+int	render_sprite(t_sl *sl, t_xpm xpm);
 int	render(t_sl *sl);
 //so_long.c
 #endif
