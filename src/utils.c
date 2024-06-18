@@ -6,17 +6,17 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 16:22:37 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/06/14 18:29:36 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/06/17 11:56:47 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int on_destroy(t_win *data)
+int on_destroy(t_sl *sl)
 {
-	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-	mlx_destroy_display(data->mlx_ptr);
-	free(data->mlx_ptr);
+	mlx_destroy_window(sl->mlx_ptr, sl->win_ptr);
+	mlx_destroy_display(sl->mlx_ptr);
+	free(sl->mlx_ptr);
 	exit(0);
 	return (0);
 }

@@ -26,17 +26,6 @@ SRC-SL				= ./src/so_long.c \
 						./src/utils.c \
 						./src/keys.c \
 						./src/rendering.c \
-#						./src/algo_radixsort.c \
-#						./src/algo_simplesort.c \
-#						./src/algo_simplesort_sort3.c \
-#						./src/operations_push.c \
-#						./src/operations_rotaterev.c \
-#						./src/operations_rotate.c \
-#						./src/operations_swap.c \
-#						./src/utils_check.c \
-#						./src/utils_free+print.c \
-#						./src/utils_index.c \
-#						./src/utils_lists.c
 
 HEADER				= ./src/
 
@@ -98,7 +87,7 @@ $(NAME-LIBFT):
 		@make -C./lib
 		@echo "$(GREEN)Libft ready!$(COLOFF)"
 
-$(NAME-SL): ./src/so_long.c $(NAME-LIBFT) $(NAME-MLX)
+$(NAME-SL): $(SRC-SL) $(NAME-LIBFT) $(NAME-MLX)
 		@echo "$(YELLOW)Compiling so long.$(COLOFF)"
 		@$(CC) $(CFLAGS)$(HEADER) $(SRC-SL) $(NAME-LIBFT) $(NAME-MLX) \
 		-L${MLXDIR} $(MLXFLAGS) -o $(NAME-SL)

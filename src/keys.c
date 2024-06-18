@@ -6,7 +6,7 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 16:21:56 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/06/14 18:29:38 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/06/17 11:49:19 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@ int	handle_keypress(int keysym)
 	return (0);
 }
 
-int	handle_keyrelease(int keysym, t_win *data)
+int	handle_keyrelease(int keysym, t_sl *sl)
 {
+	ft_printf("Keyrelease: %d\n", keysym);
 	if (keysym == XK_Escape)
 	{
-		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-		data->win_ptr = NULL;
+		/* mlx_destroy_window(sl->mlx_ptr, sl->win_ptr);
+		sl->win_ptr = NULL; */
+		on_destroy(sl);
 	}
-	ft_printf("Keyrelease: %d\n", keysym);
 	return (0);
 }

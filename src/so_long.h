@@ -6,7 +6,7 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 12:36:52 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/06/14 18:42:08 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/06/17 12:36:13 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,18 @@
 # define XPM_SNEK_2			"./assets/sprites/xpm/snake_right2.xpm"
 # define XPM_SNEK_3			"./assets/sprites/xpm/snake_right3.xpm"
 
-typedef struct s_win
+typedef struct s_img
+{
+    //t_win	win;
+	void	*mlx_img;
+    char	*addr;
+    int		bpp; //bits per pixel
+    int		line_len;
+    int		endian;
+	int		img_width;
+	int		img_height;
+}	t_img;
+typedef struct s_sl
 {
 	void		*mlx_ptr; // MLX pointer
 	void		*win_ptr; // MLX window pointer
@@ -75,20 +86,9 @@ typedef struct s_win
 	//t_map		*map; // Map pointer (contains map details - preferably kept on the stack)
 	int			win_width;
 	int			win_height;
-	//t_img	img; //temp, ab blog
-}	t_win;
-
-typedef struct s_img
-{
-    t_win	win;
-	void	*mlx_img;
-    char	*addr;
-    int		bpp; /* bits per pixel */
-    int		line_len;
-    int		endian;
-	int		img_width;
-	int		img_height;
-}	t_img;
+	//t_img		rect; //temp, ab blog
+	t_img		bg;
+}	t_sl;
 
 typedef struct s_rect
 {
@@ -99,27 +99,22 @@ typedef struct s_rect
     int color;
 }	t_rect;
 
-/* typedef struct s_sprite
+typedef struct s_xpm
 {
-    //int	x;
-    //int	y;
-	char	*filename;
     int width;
     int height;
-	int frame;
-	t_img img_spr;
-}	t_sprite; */
+}	t_xpm;
 
-/* //utils.c
-int on_destroy(t_win *data);
+//utils.c/
+int on_destroy(t_sl *sl);
 void	img_pix_put(t_img *img, int x, int y, int color);
 //keys.c
 int	handle_keypress(int keysym);
-int	handle_keyrelease(int keysym, t_win *data);
+int	handle_keyrelease(int keysym, t_sl *sl);
 //rendering.c
 void	render_background(t_img *img, int color);
 int render_rect(t_img *img, t_rect rect);
-int	render_sprite(t_img *img, void *mlx_ptr, t_sprite sprite);
-int	render(t_win *data);
-//so_long.c */
+int	render_sprite(t_sl **sl, t_xpm xpm);
+int	render(t_sl *sl);
+//so_long.c
 #endif
