@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsetya <hsetya@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 17:28:53 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/06/18 12:53:17 by hsetya           ###   ########.fr       */
+/*   Updated: 2024/06/18 16:16:14 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,7 +182,7 @@ t_img	new_file_img(char * path, t_win window) {
 int main(void)
 {
  	t_win	tutorial;
-	t_img	image;
+	//t_img	image;
 	t_img	tloz_img;
 	
 	tutorial = new_window(600, 500, "animations");
@@ -190,10 +190,10 @@ int main(void)
 		return (2);
 
 	/* Put white pixel */
-	image = new_img(600, 500, tutorial);
-	put_pixel_img(image, 150, 150, 0xFF0000);
+	//image = new_img(600, 500, tutorial);
+	/* put_pixel_img(image, 150, 150, 0xFF0000);
 	mlx_put_image_to_window (image.win.mlx_ptr, image.win.win_ptr, image.img_ptr, 0, 0);
-	destroy_image(image);
+	destroy_image(image); */
 
 	/* Put image */
 	tloz_img = new_file_img("assets/cow_front0.xpm", tutorial);

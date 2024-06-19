@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsetya <hsetya@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 12:36:52 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/06/18 10:28:44 by hsetya           ###   ########.fr       */
+/*   Updated: 2024/06/18 18:58:19 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@
 typedef struct s_img
 {
     //t_win	win;
-	void	*mlx_img;
+	void	*img_ptr;
     char	*addr;
     int		bpp; //bits per pixel
     int		line_len;
@@ -88,7 +88,8 @@ typedef struct s_sl
 	int			win_height;
 	//t_img		rect; //temp, ab blog
 	t_img		bg;
-	t_img		layer1;
+	t_img		xpm1;
+	t_img		xpm2;
 }	t_sl;
 
 typedef struct s_rect
@@ -115,9 +116,10 @@ void	img_pix_put(t_img *img, int x, int y, int color);
 int	handle_keypress(int keysym);
 int	handle_keyrelease(int keysym, t_sl *sl);
 //rendering.c
-void	render_background(t_img *img, int color);
-int render_rect(t_img *img, t_rect rect);
-int	render_sprite(t_sl *sl, t_xpm xpm);
+//void	render_background(t_img *img, int color);
+t_img	render_bg(int width, int height, t_sl *sl, int color)
+//int render_rect(t_img *img, t_rect rect);
+//int	render_sprite(t_sl *sl, t_xpm xpm);
 int	render(t_sl *sl);
 //so_long.c
 #endif
