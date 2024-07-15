@@ -3,7 +3,7 @@
 
 ## Preparation, set up MLX
 UNAME				= $(shell uname)
-#MLXGIT				= https://github.com/42Paris/minilibx-linux.git
+MLXGIT				= https://github.com/42Paris/minilibx-linux.git
 ifeq ($(UNAME), Darwin)
 	MLXTAR		= minilibx_opengl.tgz
 	MLXDIR		= ./lib/minilibx_opengl_20191021/ 
@@ -55,9 +55,9 @@ clean:
 fclean:				clean
 					@make fclean -C ./lib
 					@echo "$(RED)Libft's gone, baby, gone!$(COLOFF)"
-					@make clean -C ./lib/minilibx-linux
 					@$(RM) ./lib/$(MLXTAR)
 					@rm -rf $(MLXDIR)
+					@make clean -C ./lib/minilibx-linux
 					@echo "$(RED)Minilibx's gone, baby, gone!$(COLOFF)"
 
 re:					fclean all
@@ -68,16 +68,16 @@ re:					fclean all
 # Targets
 
 $(NAME-MLX):
-#		@if [ ! -d "${MLXDIR}" ]; then \
-#		echo "$(YELLOW)Cloning minilibx.$(COLOFF)"; \
-#		git clone "${MLXGIT}" "${MLXDIR}"; \
-#		fi
 		@if [ ! -d "${MLXDIR}" ]; then \
-		echo "$(YELLOW)Getting minilibx.$(COLOFF)"; \
-		curl -0 "${MLXURL}" --output ./lib/"${MLXTAR}"; \
-		echo "$(YELLOW)Extracting minilibx.$(COLOFF)"; \
-		tar -xvf ./lib/"${MLXTAR}" -C ./lib/ > /dev/null; \
+		echo "$(YELLOW)Cloning minilibx.$(COLOFF)"; \
+		git clone "${MLXGIT}" "${MLXDIR}"; \
 		fi
+#		@if [ ! -d "${MLXDIR}" ]; then \
+#		echo "$(YELLOW)Getting minilibx.$(COLOFF)"; \
+#		curl -0 "${MLXURL}" --output ./lib/"${MLXTAR}"; \
+#		echo "$(YELLOW)Extracting minilibx.$(COLOFF)"; \
+#		tar -xzvf ./lib/"${MLXTAR}" -C ./lib/ > /dev/null; \
+#		fi
 		@echo "$(YELLOW)Making minilibx.$(COLOFF)"
 		@make -C ${MLXDIR} -s
 		@echo "$(GREEN)Minilibx-linux ready!$(COLOFF)"
