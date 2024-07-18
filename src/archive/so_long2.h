@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long2.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 12:36:52 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/07/18 16:00:04 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/06/14 14:10:51 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,18 +150,5 @@ typedef struct s_sprite
     int height;
     int color;
 }	t_sprite;
-
-//utils.c
-int on_destroy(t_data *data);
-void	img_pix_put(t_img *img, int x, int y, int color);
-
-//rendering.c
-void	render_background(t_img *img, int color);
-int render_rect(t_img *img, t_rect rect);
-int	render(t_data *data);
-
-//keys.c
-int	handle_keypress(int keysym);
-int	handle_keyrelease(int keysym, t_data *data);
 
 #endif

@@ -26,8 +26,8 @@ NAME-MLX			= $(MLXDIR)libmlx.a
 ## Sources & headers & others
 SRC-SL				= ./src/so_long.c \
 						./src/utils.c \
-						./src/keys.c \
 						./src/rendering.c \
+						./src/keys.c \
 
 HEADER				= ./src/
 
@@ -58,8 +58,8 @@ fclean:				clean
 					@make fclean -C ./lib
 					@echo "$(RED)Libft's gone, baby, gone!$(COLOFF)"
 					@$(RM) ./lib/$(MLXTAR)
-					@rm -rf $(MLXDIR)
 					@make clean -C ./lib/minilibx-linux
+					@rm -rf $(MLXDIR)
 					@echo "$(RED)Minilibx's gone, baby, gone!$(COLOFF)"
 
 re:					fclean all
@@ -91,7 +91,7 @@ $(NAME-LIBFT):
 
 $(NAME-SL): $(SRC-SL) $(NAME-LIBFT) $(NAME-MLX)
 		@echo "$(YELLOW)Compiling so long.$(COLOFF)"
-		@$(CC) $(CFLAGS)$(HEADER) $(SRC-SL) $(NAME-LIBFT) $(NAME-MLX) \
+		@$(CC) $(CFLAGS) $(HEADER) $(SRC-SL) $(NAME-LIBFT) $(NAME-MLX) \
 		-L${MLXDIR} $(MLXFLAGS) -o $(NAME-SL)
 		@echo "$(GREEN)So Long ready!$(COLOFF)"
 

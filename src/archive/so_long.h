@@ -6,56 +6,9 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 12:36:52 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/07/18 16:00:04 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/07/18 15:23:57 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/* #ifndef SO_LONG_H
-# define SO_LONG_H
-
-# include <stdlib.h>
-# include <string.h>
-# include <X11/X.h>
-# include <X11/keysym.h>
-# include "../lib/minilibx-linux/mlx.h"
-# include "../lib/src/libft/libft.h"
-# include "../lib/src/get_next_line/get_next_line.h"
-# include "../lib/src/ft_printf/ft_printf.h"
-
-# define WIN_WIDTH 640
-# define WIN_HEIGHT 360
-# define RED_PIXEL 0xFF0000
-# define YELLOW_PIXEL 0xFFFF00
-# define GREY_PIXEL 0x808080
-
-typedef struct s_img
-{
-    void	*mlx_img;
-    char	*addr;
-    int		bpp; //bits per pixel
-    int		line_len;
-    int		endian;
-}	t_img;
-
-typedef struct s_data
-{
-	void		*mlx_ptr; // MLX pointer
-	void		*win_ptr; // MLX window pointer
-	//void		*textures[5]; // MLX image pointers (on the stack)
-	//t_map		*map; // Map pointer (contains map details - preferably kept on the stack)
-	t_img	img; //temp, ab blog
-}	t_data;
-
-typedef struct s_rect
-{
-    int	x;
-    int	y;
-    int width;
-    int height;
-    int color;
-}	t_rect;
-
-#endif */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
@@ -116,21 +69,29 @@ typedef struct s_rect
 
 typedef struct s_img
 {
-    void	*mlx_img;
+    //t_win	win;
+	void	*img_ptr;
     char	*addr;
-    int		bpp; /* bits per pixel */
+    int		bpp; //bits per pixel
     int		line_len;
     int		endian;
+	int		img_width;
+	int		img_height;
 }	t_img;
 
-typedef struct s_data
+typedef struct s_sl
 {
 	void		*mlx_ptr; // MLX pointer
 	void		*win_ptr; // MLX window pointer
 	//void		*textures[5]; // MLX image pointers (on the stack)
 	//t_map		*map; // Map pointer (contains map details - preferably kept on the stack)
-	t_img	img; //temp, ab blog
-}	t_data;
+	int			win_width;
+	int			win_height;
+	//t_img		rect; //temp, ab blog
+	t_img		bg;
+	t_img		xpm1;
+	t_img		xpm2;
+}	t_sl;
 
 typedef struct s_rect
 {
@@ -141,27 +102,28 @@ typedef struct s_rect
     int color;
 }	t_rect;
 
-typedef struct s_sprite
+typedef struct s_xpm
 {
-	void	*spr;
-    int	x;
-    int	y;
-    int width;
+    int x;
+	int y;
+	int width;
     int height;
-    int color;
-}	t_sprite;
+}	t_xpm;
 
 //utils.c
-int on_destroy(t_data *data);
+int on_destroy(t_sl *sl);
 void	img_pix_put(t_img *img, int x, int y, int color);
-
-//rendering.c
-void	render_background(t_img *img, int color);
-int render_rect(t_img *img, t_rect rect);
-int	render(t_data *data);
 
 //keys.c
 int	handle_keypress(int keysym);
-int	handle_keyrelease(int keysym, t_data *data);
+int	handle_keyrelease(int keysym, t_sl *sl);
 
+//rendering.c
+//void	render_background(t_img *img, int color);
+t_img	render_bg(int width, int height, t_sl *sl, int color);
+//int render_rect(t_img *img, t_rect rect);
+//int	render_sprite(t_sl *sl, t_xpm xpm);
+int	render(t_sl *sl);
+
+//so_long.c
 #endif

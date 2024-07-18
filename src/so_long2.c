@@ -6,11 +6,11 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 17:28:53 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/06/14 18:29:25 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/07/18 15:46:01 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long2.h"
 
 /* int	main(int argc, char *argv[])
 {

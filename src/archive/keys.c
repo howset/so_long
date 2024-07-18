@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   keys.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 16:22:37 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/07/18 15:51:26 by hsetyamu         ###   ########.fr       */
+/*   Created: 2024/06/14 16:21:56 by hsetyamu          #+#    #+#             */
+/*   Updated: 2024/07/18 15:34:19 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int on_destroy(t_data *data)
+int	handle_keypress(int keysym)
 {
-	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-	mlx_destroy_display(data->mlx_ptr);
-	free(data->mlx_ptr);
-	exit(0);
+	ft_printf("Keypress: %d\n", keysym);
 	return (0);
 }
 
-void	img_pix_put(t_img *img, int x, int y, int color)
+int	handle_keyrelease(int keysym, t_sl *sl)
 {
-	char	*pixel;
-
-	pixel = img->addr + (y * img->line_len + x * (img->bpp / 8));
-	*(int *)pixel = color;
+	ft_printf("Keyrelease: %d\n", keysym);
+	if (keysym == XK_Escape)
+	{
+		/* mlx_destroy_window(sl->mlx_ptr, sl->win_ptr);
+		sl->win_ptr = NULL; */
+		on_destroy(sl);
+	}
+	return (0);
 }
