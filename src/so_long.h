@@ -6,7 +6,7 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 12:36:52 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/07/18 16:59:29 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/07/19 15:07:20 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,18 +60,19 @@ typedef struct s_rect
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include <stdio.h>
+//# include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
-# include <X11/X.h>
-# include <X11/keysym.h>
+# include <fcntl.h> //open
+# include <X11/X.h> //keys
+# include <X11/keysym.h> //keys
 # include "../lib/minilibx-linux/mlx.h"
 # include "../lib/src/libft/libft.h"
 # include "../lib/src/get_next_line/get_next_line.h"
 # include "../lib/src/ft_printf/ft_printf.h"
 
-# define WIN_WIDTH 640
 # define WIN_HEIGHT 360
+# define WIN_WIDTH 640
 # define RED_PIXEL 0xFF0000
 # define YELLOW_PIXEL 0xFFFF00
 # define GREY_PIXEL 0x808080
@@ -127,6 +128,7 @@ typedef struct s_data
 {
 	void		*mlx_ptr; // MLX pointer
 	void		*win_ptr; // MLX window pointer
+	int			spr_size;
 	//void		*textures[5]; // MLX image pointers (on the stack)
 	//t_map		*map; // Map pointer (contains map details - preferably kept on the stack)
 	t_img	img; //temp, ab blog

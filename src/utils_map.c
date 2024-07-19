@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 16:22:37 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/07/19 14:27:54 by hsetyamu         ###   ########.fr       */
+/*   Created: 2024/07/19 14:51:20 by hsetyamu          #+#    #+#             */
+/*   Updated: 2024/07/19 14:54:06 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int on_destroy(t_data *data)
+int	get_map(char *map, t_data *data)
 {
-	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-	data->win_ptr = NULL;
+	int		file;
+	int		linecount;
+	char	*line;
+
+	linecount = 0;
+	file = open(map, O_RDWR);
+	if (file == -1)
+	{
+		write(1, "Error\nMap does not exist\n", 25);
+		return (1);
+	}
+	line = get_next_line(file);
+	if (line == NULL)
+		exit(EXIT_FAILURE);
+	while (line)
+	{
+		free(line);
+		line = get_next_line(file);
+		linecount++;
+	}
+	close(file);
+	fill_map(game, linecount, map);
+	free(line);
 	return (0);
-}
-
-void	img_pix_put(t_img *img, int x, int y, int color)
-{
-	char	*pixel;
-
-	pixel = img->addr + (y * img->line_len + x * (img->bpp / 8));
-	*(int *)pixel = color;
 }
