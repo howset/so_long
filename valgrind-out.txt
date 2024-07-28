@@ -1,0 +1,767 @@
+==76800== Memcheck, a memory error detector
+==76800== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==76800== Using Valgrind-3.19.0-8d3c8034b8-20220411 and LibVEX; rerun with -h for copyright info
+==76800== Command: ./so_long
+==76800== Parent PID: 76797
+==76800== 
+--76800-- 
+--76800-- Valgrind options:
+--76800--    --leak-check=full
+--76800--    --show-leak-kinds=all
+--76800--    --track-origins=yes
+--76800--    --verbose
+--76800--    --log-file=valgrind-out.txt
+--76800-- Contents of /proc/version:
+--76800--   Linux version 6.1.0-23-amd64 (debian-kernel@lists.debian.org) (gcc-12 (Debian 12.2.0-14) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40) #1 SMP PREEMPT_DYNAMIC Debian 6.1.99-1 (2024-07-15)
+--76800-- 
+--76800-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand-rdseed
+--76800-- Page sizes: currently 4096, max supported 4096
+--76800-- Valgrind library directory: /usr/libexec/valgrind
+--76800-- Reading syms from /home/hsetya/workspace/42/so_long/so_long
+--76800-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+--76800--   Considering /usr/lib/debug/.build-id/0e/221d13cd73dac3d7b782778a5f325252903c3e.debug ..
+--76800--   .. build-id is valid
+--76800-- Reading syms from /usr/libexec/valgrind/memcheck-amd64-linux
+--76800--    object doesn't have a symbol table
+--76800--    object doesn't have a dynamic symbol table
+--76800-- Scheduler: using generic scheduler lock implementation.
+--76800-- Reading suppressions file: /usr/libexec/valgrind/default.supp
+==76800== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-76800-by-hsetya-on-???
+==76800== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-76800-by-hsetya-on-???
+==76800== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-76800-by-hsetya-on-???
+==76800== 
+==76800== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==76800== don't want to do, unless you know exactly what you're doing,
+==76800== or are doing some strange experiment):
+==76800==   /usr/bin/vgdb --pid=76800 ...command...
+==76800== 
+==76800== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==76800==   /path/to/gdb ./so_long
+==76800== and then give GDB the following command
+==76800==   target remote | /usr/bin/vgdb --pid=76800
+==76800== --pid is optional if only one valgrind process is running
+==76800== 
+--76800-- REDIR: 0x40238e0 (ld-linux-x86-64.so.2:strlen) redirected to 0x580bb0e2 (???)
+--76800-- REDIR: 0x40220c0 (ld-linux-x86-64.so.2:index) redirected to 0x580bb0fc (???)
+--76800-- Reading syms from /usr/libexec/valgrind/vgpreload_core-amd64-linux.so
+--76800--    object doesn't have a symbol table
+--76800-- Reading syms from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
+--76800--    object doesn't have a symbol table
+==76800== WARNING: new redirection conflicts with existing -- ignoring it
+--76800--     old: 0x040238e0 (strlen              ) R-> (0000.0) 0x580bb0e2 ???
+--76800--     new: 0x040238e0 (strlen              ) R-> (2007.0) 0x048468a0 strlen
+--76800-- REDIR: 0x40222e0 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4847780 (strcmp)
+--76800-- REDIR: 0x4021550 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x484b1a0 (mempcpy)
+--76800-- Reading syms from /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+--76800--    object doesn't have a symbol table
+--76800-- Reading syms from /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+--76800--    object doesn't have a symbol table
+--76800-- Reading syms from /usr/lib/x86_64-linux-gnu/libc.so.6
+--76800--   Considering /usr/lib/debug/.build-id/58/254ca972028402bc40624f81388d85ec95f70d.debug ..
+--76800--   .. build-id is valid
+==76800== WARNING: new redirection conflicts with existing -- ignoring it
+--76800--     old: 0x04a5a540 (memalign            ) R-> (1011.0) 0x04845bc0 memalign
+--76800--     new: 0x04a5a540 (memalign            ) R-> (1017.0) 0x04845b90 aligned_alloc
+==76800== WARNING: new redirection conflicts with existing -- ignoring it
+--76800--     old: 0x04a5a540 (memalign            ) R-> (1011.0) 0x04845bc0 memalign
+--76800--     new: 0x04a5a540 (memalign            ) R-> (1017.0) 0x04845b60 aligned_alloc
+--76800-- Reading syms from /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+--76800--    object doesn't have a symbol table
+--76800-- Reading syms from /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+--76800--    object doesn't have a symbol table
+--76800-- Reading syms from /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+--76800--    object doesn't have a symbol table
+--76800-- Reading syms from /usr/lib/x86_64-linux-gnu/libbsd.so.0.11.7
+--76800--    object doesn't have a symbol table
+--76800-- Reading syms from /usr/lib/x86_64-linux-gnu/libmd.so.0.0.5
+--76800--    object doesn't have a symbol table
+--76800-- REDIR: 0x4a60490 (libc.so.6:strnlen) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4a60520 (libc.so.6:strpbrk) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4a5e640 (libc.so.6:strcmp) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4a73420 (libc.so.6:wcsnlen) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4a5d780 (libc.so.6:memset) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4a71d60 (libc.so.6:wcslen) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4a5cdb0 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4a71b90 (libc.so.6:wcschr) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4a5e530 (libc.so.6:index) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4a60550 (libc.so.6:rindex) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4a71c20 (libc.so.6:wcscmp) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4a5d9c0 (libc.so.6:stpncpy) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4a72170 (libc.so.6:wmemchr) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4a60340 (libc.so.6:strncmp) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4a5da30 (libc.so.6:strcasecmp) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4a5f8a0 (libc.so.6:strcspn) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4a71cb0 (libc.so.6:wcscpy) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4a5e4b0 (libc.so.6:strcat) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4a60230 (libc.so.6:strncasecmp_l) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4a5ccc0 (libc.so.6:bcmp) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4a5d6f0 (libc.so.6:memrchr) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4a5e5b0 (libc.so.6:strchrnul) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4a5f820 (libc.so.6:strcpy) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4a5dad0 (libc.so.6:strcasecmp_l) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4a60100 (libc.so.6:strlen) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4a603e0 (libc.so.6:strncpy) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4a5d940 (libc.so.6:stpcpy) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4a5d4d0 (libc.so.6:memmove) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+==76800== Preferring higher priority redirection:
+--76800--     old: 0x04b13780 (__memcpy_avx_unalign) R-> (2018.0) 0x04848a60 __memcpy_avx_unaligned_erms
+--76800--     new: 0x04b13780 (__memcpy_avx_unalign) R-> (2018.1) 0x0484a2b0 memmove
+--76800-- REDIR: 0x4a5cc40 (libc.so.6:memchr) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4a60710 (libc.so.6:strspn) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4a5d5e0 (libc.so.6:mempcpy) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4a60190 (libc.so.6:strncasecmp) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4a5d880 (libc.so.6:rawmemchr) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--76800-- REDIR: 0x4b19850 (libc.so.6:__strrchr_avx2) redirected to 0x48462e0 (rindex)
+--76800-- REDIR: 0x4a59860 (libc.so.6:malloc) redirected to 0x4840740 (malloc)
+--76800-- REDIR: 0x4b16f00 (libc.so.6:__strlen_avx2) redirected to 0x4846780 (strlen)
+--76800-- REDIR: 0x4b185d0 (libc.so.6:__strncmp_avx2) redirected to 0x4846ed0 (strncmp)
+--76800-- REDIR: 0x4a5a610 (libc.so.6:calloc) redirected to 0x4845540 (calloc)
+--76800-- REDIR: 0x4b13780 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x484a2b0 (memmove)
+--76800-- REDIR: 0x4a59e20 (libc.so.6:free) redirected to 0x4843110 (free)
+--76800-- REDIR: 0x4b16420 (libc.so.6:__strchrnul_avx2) redirected to 0x484aca0 (strchrnul)
+--76800-- REDIR: 0x4ad74b0 (libc.so.6:__strcpy_chk) redirected to 0x484ad10 (__strcpy_chk)
+--76800-- REDIR: 0x4b161e0 (libc.so.6:__strchr_avx2) redirected to 0x4846460 (index)
+--76800-- REDIR: 0x4b13020 (libc.so.6:__memcmp_avx2_movbe) redirected to 0x4849aa0 (bcmp)
+--76800-- REDIR: 0x4b14180 (libc.so.6:__memset_avx2_unaligned_erms) redirected to 0x484a1c0 (memset)
+--76800-- REDIR: 0x4a5a060 (libc.so.6:realloc) redirected to 0x48457b0 (realloc)
+--76800-- REDIR: 0x4b18c20 (libc.so.6:__strncpy_avx2) redirected to 0x4846a50 (strncpy)
+--76800-- REDIR: 0x4b16610 (libc.so.6:__strcmp_avx2) redirected to 0x4847680 (strcmp)
+--76800-- REDIR: 0x4b16b70 (libc.so.6:__strcpy_avx2) redirected to 0x48468d0 (strcpy)
+==76800== Conditional jump or move depends on uninitialised value(s)
+==76800==    at 0x10E9D1: display_mapfull (utils_map.c:49)
+==76800==    by 0x1100E4: mlx_loop (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E624: main (so_long.c:75)
+==76800==  Uninitialised value was created by a heap allocation
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x10EA1A: populate_map (utils_map.c:65)
+==76800==    by 0x10EB7A: read_ber (utils_map.c:112)
+==76800==    by 0x10E543: main (so_long.c:63)
+==76800== 
+==76800== Invalid read of size 8
+==76800==    at 0x110102: mlx_loop (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E624: main (so_long.c:75)
+==76800==  Address 0x4e23fe8 is 872 bytes inside a block of size 936 free'd
+==76800==    at 0x484317B: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x111242: mlx_destroy_window (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E669: on_destroy (utils.c:17)
+==76800==    by 0x11013E: mlx_loop (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E624: main (so_long.c:75)
+==76800==  Block was alloc'd at
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x10FF18: mlx_new_window (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E566: main (so_long.c:64)
+==76800== 
+==76800== Invalid read of size 8
+==76800==    at 0x1102D1: mlx_put_image_to_window (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E829: display_maplines (utils_map.c:23)
+==76800==    by 0x10E9B1: display_mapfull (utils_map.c:51)
+==76800==    by 0x1100E4: mlx_loop (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E624: main (so_long.c:75)
+==76800==  Address 0x8 is not stack'd, malloc'd or (recently) free'd
+==76800== 
+==76800== 
+==76800== Process terminating with default action of signal 11 (SIGSEGV)
+==76800==  Access not within mapped region at address 0x8
+==76800==    at 0x1102D1: mlx_put_image_to_window (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E829: display_maplines (utils_map.c:23)
+==76800==    by 0x10E9B1: display_mapfull (utils_map.c:51)
+==76800==    by 0x1100E4: mlx_loop (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E624: main (so_long.c:75)
+==76800==  If you believe this happened as a result of a stack
+==76800==  overflow in your program's main thread (unlikely but
+==76800==  possible), you can try to increase the size of the
+==76800==  main thread stack using the --main-stacksize= flag.
+==76800==  The main thread stack size used in this run was 8388608.
+==76800== 
+==76800== HEAP SUMMARY:
+==76800==     in use at exit: 102,446 bytes in 100 blocks
+==76800==   total heap usage: 3,168,994 allocs, 3,168,894 frees, 82,243,939 bytes allocated
+==76800== 
+==76800== Searching for pointers to 100 not-freed blocks
+==76800== Checked 393,496 bytes
+==76800== 
+==76800== 2 bytes in 1 blocks are still reachable in loss record 1 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x10F780: null_malloc (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10F6D2: clean_up (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10F426: get_next_line (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10EA63: populate_map (utils_map.c:70)
+==76800==    by 0x10EB7A: read_ber (utils_map.c:112)
+==76800==    by 0x10E543: main (so_long.c:63)
+==76800== 
+==76800== 3 bytes in 1 blocks are still reachable in loss record 2 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x4A5F8E9: strdup (strdup.c:42)
+==76800==    by 0x48B2B32: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x10FDB2: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 8 bytes in 1 blocks are still reachable in loss record 3 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x4A5F8E9: strdup (strdup.c:42)
+==76800==    by 0x48AC7C9: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x4877C9A: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x487339C: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x10FC1F: mlx_int_deal_shm (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10FE5E: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 8 bytes in 1 blocks are still reachable in loss record 4 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x4877A06: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x4877A6A: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x4877E42: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x487339C: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x10FC1F: mlx_int_deal_shm (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10FE5E: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 10 bytes in 1 blocks are still reachable in loss record 5 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x4A5F8E9: strdup (strdup.c:42)
+==76800==    by 0x48AC7C9: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x4917673: XkbUseExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x48B35A8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x10FDB2: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 10 bytes in 1 blocks are still reachable in loss record 6 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x10F780: null_malloc (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10F596: extract_line (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10F413: get_next_line (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10EA37: populate_map (utils_map.c:66)
+==76800==    by 0x10EB7A: read_ber (utils_map.c:112)
+==76800==    by 0x10E543: main (so_long.c:63)
+==76800== 
+==76800== 16 bytes in 1 blocks are still reachable in loss record 7 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x4BB46DD: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==76800==    by 0x4BB2B48: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==76800==    by 0x4BB09FF: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==76800==    by 0x4BB5191: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==76800==    by 0x48C23A1: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x48B2B52: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x10FDB2: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 16 bytes in 1 blocks are still reachable in loss record 8 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48B0756: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x48B2DD5: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x10FDB2: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 21 bytes in 1 blocks are still reachable in loss record 9 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48B2FA6: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x10FDB2: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 24 bytes in 1 blocks are still reachable in loss record 10 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x4877BFD: XextCreateExtension (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x4877704: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x4877A57: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x4877E42: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x487339C: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x10FC1F: mlx_int_deal_shm (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10FE5E: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 24 bytes in 1 blocks are still reachable in loss record 11 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x4A5F8E9: strdup (strdup.c:42)
+==76800==    by 0x48AC7C9: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x4877C9A: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x4877742: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x4877A57: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x4877E42: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x487339C: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x10FC1F: mlx_int_deal_shm (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10FE5E: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 24 bytes in 1 blocks are still reachable in loss record 12 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x4877A85: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x4877E42: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x487339C: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x10FC1F: mlx_int_deal_shm (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10FE5E: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 24 bytes in 1 blocks are still reachable in loss record 13 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48C2DD5: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x48C3706: _XReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x48BEE8A: XSync (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x1100CF: mlx_loop (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E624: main (so_long.c:75)
+==76800== 
+==76800== 29 bytes in 1 blocks are still reachable in loss record 14 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48AD7A9: _XUpdateAtomCache (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x48ADB89: XInternAtom (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x10FE50: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 32 bytes in 1 blocks are still reachable in loss record 15 of 63
+==76800==    at 0x48406C4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x4BB4346: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==76800==    by 0x4BB43CD: xcb_get_extension_data (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==76800==    by 0x4BB120E: xcb_prefetch_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==76800==    by 0x4BB1284: xcb_get_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==76800==    by 0x48B32E9: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x10FDB2: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 32 bytes in 1 blocks are still reachable in loss record 16 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x4BB3872: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==76800==    by 0x4BB0F97: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==76800==    by 0x4BB2D8E: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==76800==    by 0x4BB2EA0: xcb_wait_for_reply (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==76800==    by 0x4BB4412: xcb_get_extension_data (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==76800==    by 0x4BB120E: xcb_prefetch_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==76800==    by 0x4BB1284: xcb_get_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==76800==    by 0x48B32E9: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x10FDB2: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 32 bytes in 1 blocks are still reachable in loss record 17 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x4877C6B: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x487339C: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x10FC1F: mlx_int_deal_shm (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10FE5E: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 32 bytes in 1 blocks are still reachable in loss record 18 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x4877C6B: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x4877742: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x4877A57: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x4877E42: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x487339C: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x10FC1F: mlx_int_deal_shm (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10FE5E: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 33 bytes in 1 blocks are still reachable in loss record 19 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48AD7A9: _XUpdateAtomCache (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x48ADB89: XInternAtom (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x10FE3B: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 40 bytes in 1 blocks are still reachable in loss record 20 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48B0CC9: XInitThreads (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x40049CD: call_init (dl-init.c:74)
+==76800==    by 0x40049CD: call_init (dl-init.c:26)
+==76800==    by 0x4004AB3: _dl_init (dl-init.c:121)
+==76800==    by 0x401AA6F: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+==76800== 
+==76800== 40 bytes in 1 blocks are still reachable in loss record 21 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48B0CE6: XInitThreads (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x40049CD: call_init (dl-init.c:74)
+==76800==    by 0x40049CD: call_init (dl-init.c:26)
+==76800==    by 0x4004AB3: _dl_init (dl-init.c:121)
+==76800==    by 0x401AA6F: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+==76800== 
+==76800== 40 bytes in 1 blocks are still reachable in loss record 22 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48B0D03: XInitThreads (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x40049CD: call_init (dl-init.c:74)
+==76800==    by 0x40049CD: call_init (dl-init.c:26)
+==76800==    by 0x4004AB3: _dl_init (dl-init.c:121)
+==76800==    by 0x401AA6F: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+==76800== 
+==76800== 40 bytes in 1 blocks are still reachable in loss record 23 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48B079E: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x48B2DD5: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x10FDB2: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 40 bytes in 1 blocks are still reachable in loss record 24 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48C468D: _XPollfdCacheInit (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x48B2DE5: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x10FDB2: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 40 bytes in 4 blocks are still reachable in loss record 25 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x10F780: null_malloc (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10F596: extract_line (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10F413: get_next_line (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10EA63: populate_map (utils_map.c:70)
+==76800==    by 0x10EB7A: read_ber (utils_map.c:112)
+==76800==    by 0x10E543: main (so_long.c:63)
+==76800== 
+==76800== 48 bytes in 1 blocks are still reachable in loss record 26 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48C2329: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x48B2B52: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x10FDB2: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 48 bytes in 1 blocks are still reachable in loss record 27 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48C233F: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x48B2B52: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x10FDB2: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 48 bytes in 1 blocks are still reachable in loss record 28 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48B078D: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x48B2DD5: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x10FDB2: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 48 bytes in 1 blocks are still reachable in loss record 29 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48B07AE: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x48B2DD5: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x10FDB2: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 48 bytes in 1 blocks are still reachable in loss record 30 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x10EA1A: populate_map (utils_map.c:65)
+==76800==    by 0x10EB7A: read_ber (utils_map.c:112)
+==76800==    by 0x10E543: main (so_long.c:63)
+==76800== 
+==76800== 72 bytes in 1 blocks are still reachable in loss record 31 of 63
+==76800==    at 0x48455EF: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48B2E88: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x10FDB2: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 88 bytes in 1 blocks are still reachable in loss record 32 of 63
+==76800==    at 0x48455EF: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x1118D7: mlx_int_new_xshm_image (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x111C0C: mlx_new_image (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x110AD0: mlx_int_parse_xpm (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x110E9F: mlx_xpm_file_to_image (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E6AE: load_assets (utils.c:32)
+==76800==    by 0x10E7A3: init_assets (utils.c:52)
+==76800==    by 0x10E52D: main (so_long.c:62)
+==76800== 
+==76800== 88 bytes in 1 blocks are still reachable in loss record 33 of 63
+==76800==    at 0x48455EF: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x1118D7: mlx_int_new_xshm_image (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x111C0C: mlx_new_image (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x110AD0: mlx_int_parse_xpm (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x110E9F: mlx_xpm_file_to_image (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E6DC: load_assets (utils.c:34)
+==76800==    by 0x10E7A3: init_assets (utils.c:52)
+==76800==    by 0x10E52D: main (so_long.c:62)
+==76800== 
+==76800== 88 bytes in 1 blocks are still reachable in loss record 34 of 63
+==76800==    at 0x48455EF: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x1118D7: mlx_int_new_xshm_image (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x111C0C: mlx_new_image (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x110AD0: mlx_int_parse_xpm (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x110E9F: mlx_xpm_file_to_image (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E70A: load_assets (utils.c:36)
+==76800==    by 0x10E7A3: init_assets (utils.c:52)
+==76800==    by 0x10E52D: main (so_long.c:62)
+==76800== 
+==76800== 88 bytes in 1 blocks are still reachable in loss record 35 of 63
+==76800==    at 0x48455EF: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x1118D7: mlx_int_new_xshm_image (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x111C0C: mlx_new_image (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x110AD0: mlx_int_parse_xpm (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x110E9F: mlx_xpm_file_to_image (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E738: load_assets (utils.c:38)
+==76800==    by 0x10E7A3: init_assets (utils.c:52)
+==76800==    by 0x10E52D: main (so_long.c:62)
+==76800== 
+==76800== 88 bytes in 1 blocks are still reachable in loss record 36 of 63
+==76800==    at 0x48455EF: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x1118D7: mlx_int_new_xshm_image (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x111C0C: mlx_new_image (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x110AD0: mlx_int_parse_xpm (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x110E9F: mlx_xpm_file_to_image (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E766: load_assets (utils.c:40)
+==76800==    by 0x10E7A3: init_assets (utils.c:52)
+==76800==    by 0x10E52D: main (so_long.c:62)
+==76800== 
+==76800== 112 bytes in 1 blocks are still reachable in loss record 37 of 63
+==76800==    at 0x48455EF: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48C222E: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x48B2B52: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x10FDB2: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 112 bytes in 1 blocks are still reachable in loss record 38 of 63
+==76800==    at 0x48455EF: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48B30FD: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x10FDB2: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 128 bytes in 1 blocks are still reachable in loss record 39 of 63
+==76800==    at 0x48455EF: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48B3036: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x10FDB2: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 128 bytes in 1 blocks are still reachable in loss record 40 of 63
+==76800==    at 0x48455EF: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48AC7B9: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x4917673: XkbUseExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x48B35A8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x10FDB2: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 128 bytes in 1 blocks are still reachable in loss record 41 of 63
+==76800==    at 0x48455EF: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48AC7B9: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x4877C9A: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x487339C: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x10FC1F: mlx_int_deal_shm (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10FE5E: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 128 bytes in 1 blocks are still reachable in loss record 42 of 63
+==76800==    at 0x48455EF: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48AC7B9: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x4877C9A: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x4877742: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x4877A57: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x4877E42: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x487339C: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x10FC1F: mlx_int_deal_shm (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10FE5E: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 136 bytes in 1 blocks are still reachable in loss record 43 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x10FD9A: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 136 bytes in 1 blocks are still reachable in loss record 44 of 63
+==76800==    at 0x48455EF: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x487377F: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x111907: mlx_int_new_xshm_image (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x111C0C: mlx_new_image (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x110AD0: mlx_int_parse_xpm (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x110E9F: mlx_xpm_file_to_image (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E6AE: load_assets (utils.c:32)
+==76800==    by 0x10E7A3: init_assets (utils.c:52)
+==76800==    by 0x10E52D: main (so_long.c:62)
+==76800== 
+==76800== 136 bytes in 1 blocks are still reachable in loss record 45 of 63
+==76800==    at 0x48455EF: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x487377F: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x111907: mlx_int_new_xshm_image (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x111C0C: mlx_new_image (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x110AD0: mlx_int_parse_xpm (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x110E9F: mlx_xpm_file_to_image (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E6DC: load_assets (utils.c:34)
+==76800==    by 0x10E7A3: init_assets (utils.c:52)
+==76800==    by 0x10E52D: main (so_long.c:62)
+==76800== 
+==76800== 136 bytes in 1 blocks are still reachable in loss record 46 of 63
+==76800==    at 0x48455EF: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x487377F: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x111907: mlx_int_new_xshm_image (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x111C0C: mlx_new_image (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x110AD0: mlx_int_parse_xpm (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x110E9F: mlx_xpm_file_to_image (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E70A: load_assets (utils.c:36)
+==76800==    by 0x10E7A3: init_assets (utils.c:52)
+==76800==    by 0x10E52D: main (so_long.c:62)
+==76800== 
+==76800== 136 bytes in 1 blocks are still reachable in loss record 47 of 63
+==76800==    at 0x48455EF: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x487377F: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x111907: mlx_int_new_xshm_image (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x111C0C: mlx_new_image (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x110AD0: mlx_int_parse_xpm (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x110E9F: mlx_xpm_file_to_image (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E738: load_assets (utils.c:38)
+==76800==    by 0x10E7A3: init_assets (utils.c:52)
+==76800==    by 0x10E52D: main (so_long.c:62)
+==76800== 
+==76800== 136 bytes in 1 blocks are still reachable in loss record 48 of 63
+==76800==    at 0x48455EF: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x487377F: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x111907: mlx_int_new_xshm_image (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x111C0C: mlx_new_image (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x110AD0: mlx_int_parse_xpm (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x110E9F: mlx_xpm_file_to_image (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E766: load_assets (utils.c:40)
+==76800==    by 0x10E7A3: init_assets (utils.c:52)
+==76800==    by 0x10E52D: main (so_long.c:62)
+==76800== 
+==76800== 150 bytes in 1 blocks are still reachable in loss record 49 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48B3615: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x10FDB2: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 152 bytes in 1 blocks are still reachable in loss record 50 of 63
+==76800==    at 0x48455EF: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x491785E: XkbUseExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x48B35A8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x10FDB2: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 160 bytes in 1 blocks are still reachable in loss record 51 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48A109B: XCreateGC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x48B3360: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x10FDB2: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 168 bytes in 1 blocks are still reachable in loss record 52 of 63
+==76800==    at 0x48455EF: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48B347D: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x10FDB2: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 192 bytes in 1 blocks are still reachable in loss record 53 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48B0770: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x48B2DD5: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x10FDB2: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 208 bytes in 1 blocks are still reachable in loss record 54 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48779B9: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x4877A6A: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x4877E42: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x487339C: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==76800==    by 0x10FC1F: mlx_int_deal_shm (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10FE5E: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 208 bytes in 1 blocks are still reachable in loss record 55 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48C5CCE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x48C2716: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x48C32E8: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x48C174B: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x11020E: mlx_int_wait_first_expose (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10FFEE: mlx_new_window (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E566: main (so_long.c:64)
+==76800== 
+==76800== 512 bytes in 1 blocks are still reachable in loss record 56 of 63
+==76800==    at 0x48455EF: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48AD71B: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x48ADAB9: XInternAtom (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x10FE3B: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 3,536 bytes in 17 blocks are still reachable in loss record 57 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48C5CCE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x48C2716: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x48C384C: _XReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x48BEE8A: XSync (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x1100CF: mlx_loop (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E624: main (so_long.c:75)
+==76800== 
+==76800== 3,744 bytes in 18 blocks are still reachable in loss record 58 of 63
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48C5CCE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x48C2716: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x48C3329: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x48C174B: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x11020E: mlx_int_wait_first_expose (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10FFEE: mlx_new_window (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E566: main (so_long.c:64)
+==76800== 
+==76800== 4,720 bytes in 1 blocks are still reachable in loss record 59 of 63
+==76800==    at 0x48455EF: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48B2B1E: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x10FDB2: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 14,612 bytes in 1 blocks are still reachable in loss record 60 of 63
+==76800==    at 0x484582F: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x4BB0B73: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==76800==    by 0x4BB5191: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==76800==    by 0x48C23A1: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x48B2B52: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x10FDB2: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 16,384 bytes in 1 blocks are still reachable in loss record 61 of 63
+==76800==    at 0x48455EF: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48B2E32: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x10FDB2: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 21,176 bytes in 1 blocks are still reachable in loss record 62 of 63
+==76800==    at 0x48455EF: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x4BB0990: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==76800==    by 0x4BB5191: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==76800==    by 0x48C23A1: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x48B2B52: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x10FDB2: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== 33,600 bytes in 2 blocks are still reachable in loss record 63 of 63
+==76800==    at 0x48455EF: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x48B3183: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==76800==    by 0x10FDB2: mlx_init (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E50A: main (so_long.c:59)
+==76800== 
+==76800== LEAK SUMMARY:
+==76800==    definitely lost: 0 bytes in 0 blocks
+==76800==    indirectly lost: 0 bytes in 0 blocks
+==76800==      possibly lost: 0 bytes in 0 blocks
+==76800==    still reachable: 102,446 bytes in 100 blocks
+==76800==         suppressed: 0 bytes in 0 blocks
+==76800== 
+==76800== ERROR SUMMARY: 43407 errors from 3 contexts (suppressed: 43406 from 1)
+==76800== 
+==76800== 1 errors in context 1 of 3:
+==76800== Invalid read of size 8
+==76800==    at 0x1102D1: mlx_put_image_to_window (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E829: display_maplines (utils_map.c:23)
+==76800==    by 0x10E9B1: display_mapfull (utils_map.c:51)
+==76800==    by 0x1100E4: mlx_loop (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E624: main (so_long.c:75)
+==76800==  Address 0x8 is not stack'd, malloc'd or (recently) free'd
+==76800== 
+==76800== 
+==76800== 1 errors in context 2 of 3:
+==76800== Invalid read of size 8
+==76800==    at 0x110102: mlx_loop (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E624: main (so_long.c:75)
+==76800==  Address 0x4e23fe8 is 872 bytes inside a block of size 936 free'd
+==76800==    at 0x484317B: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x111242: mlx_destroy_window (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E669: on_destroy (utils.c:17)
+==76800==    by 0x11013E: mlx_loop (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E624: main (so_long.c:75)
+==76800==  Block was alloc'd at
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x10FF18: mlx_new_window (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E566: main (so_long.c:64)
+==76800== 
+==76800== 
+==76800== 43405 errors in context 3 of 3:
+==76800== Conditional jump or move depends on uninitialised value(s)
+==76800==    at 0x10E9D1: display_mapfull (utils_map.c:49)
+==76800==    by 0x1100E4: mlx_loop (in /home/hsetya/workspace/42/so_long/so_long)
+==76800==    by 0x10E624: main (so_long.c:75)
+==76800==  Uninitialised value was created by a heap allocation
+==76800==    at 0x48407B4: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==76800==    by 0x10EA1A: populate_map (utils_map.c:65)
+==76800==    by 0x10EB7A: read_ber (utils_map.c:112)
+==76800==    by 0x10E543: main (so_long.c:63)
+==76800== 
+--76800-- 
+--76800-- used_suppression:  43406 X on SUSE11 writev uninit padding /usr/libexec/valgrind/default.supp:377
+==76800== 
+==76800== ERROR SUMMARY: 43407 errors from 3 contexts (suppressed: 43406 from 1)

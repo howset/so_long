@@ -7,13 +7,13 @@ MLXGIT				= https://github.com/42Paris/minilibx-linux.git
 ifeq ($(UNAME), Darwin)
 	MLXTAR		= minilibx_opengl.tgz
 	MLXDIR		= ./lib/minilibx_opengl_20191021/ 
-#	MLXURL		= "https://cdn.intra.42.fr/document/document/21657/minilibx_opengl.tgz"
+#	MLXURL		= "https://cdn.intra.42.fr/document/document/21657/minilibx_opengl.tgz" #wrong
 	MLXURL		= "https://cdn.intra.42.fr/document/document/26193/minilibx_opengl.tgz"
 	MLXFLAGS 	= -lmlx -framework OpenGL -framework AppKit 
 else ifeq ($(UNAME), Linux)
 	MLXTAR		= minilibx-linux.tgz
 	MLXDIR		= ./lib/minilibx-linux/
-#	MLXURL		= "https://cdn.intra.42.fr/document/document/21656/minilibx-linux.tgz"
+#	MLXURL		= "https://cdn.intra.42.fr/document/document/21656/minilibx-linux.tgz" #wrong
 	MLXURL		= "https://cdn.intra.42.fr/document/document/26192/minilibx-linux.tgz"
 	MLXFLAGS 	= -lmlx -lXext -lX11 -lm
 endif
@@ -26,7 +26,7 @@ NAME-MLX			= $(MLXDIR)libmlx.a
 ## Sources & headers & others
 SRC-SL				= ./src/so_long.c \
 						./src/utils.c \
-						./src/rendering.c \
+						./src/utils_map.c \
 						./src/keys.c \
 
 HEADER				= ./src/
@@ -63,6 +63,9 @@ fclean:				clean
 					@echo "$(RED)Minilibx's gone, baby, gone!$(COLOFF)"
 
 re:					fclean all
+
+test:
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./$(NAME-SL)
 
 #re-bonus:			fclean bonus
 

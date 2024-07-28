@@ -1,0 +1,16 @@
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -I/minilibx_linux
+
+# Example target
+all: sl_overlay_test
+
+sl_overlay_test: sl_overlay_test.o
+    $(CC) $(CFLAGS) -o sl_overlay_test sl_overlay_test.o -L/minilibx_linux -lmlx -lXext -lX11 -lm
+
+sl_overlay_test.o: sl_overlay_test.c
+    $(CC) $(CFLAGS) -c sl_overlay_test.c
+
+clean:
+    rm -f sl_overlay_test.o sl_overlay_test
+
+.PHONY: all clean

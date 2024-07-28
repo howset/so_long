@@ -6,7 +6,7 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 16:20:57 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/07/19 15:03:57 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/07/26 16:08:28 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,11 @@
 int	render(t_data *data)
 {
 	if (data->win_ptr == NULL)
-        return (1);
+		return (1);
 	//render_background(&data->img, GREY_PIXEL);
-    //render_rect(&data->img, (t_rect){WIN_WIDTH - 100, WIN_HEIGHT - 100, 100, 100, YELLOW_PIXEL});
-    //render_rect(&data->img, (t_rect){0, 0, 100, 100, RED_PIXEL});
+	//render_rect(&data->img, (t_rect){WIN_WIDTH - 100, WIN_HEIGHT - 100, 100, 100, YELLOW_PIXEL});
+	//render_rect(&data->img, (t_rect){0, 0, 100, 100, RED_PIXEL});
 	data->img.mlx_img = mlx_xpm_file_to_image(data->mlx_ptr, XPM_WALL, &data->spr_size, &data->spr_size);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.mlx_img, 0, 0);
-    return (0);
+	return (0);
 }

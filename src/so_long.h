@@ -6,7 +6,7 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 12:36:52 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/07/19 15:07:20 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/07/26 18:43:14 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,13 +87,15 @@ typedef struct s_rect
 # define EXIT			 	'E'
 # define SNEK			 	'S'
 
-# define XPM_WALL			"./assets/sprites/xpm/nature_tile203.xpm"
+//# define XPM_WALL			"./assets/sprites/xpm/nature_tile203.xpm"
+# define XPM_WALL			"./assets/sprites/xpm/wall.xpm"
 # define XPM_FLOO			"./assets/sprites/xpm/floor_tile268.xpm"
 # define XPM_PLAY_UP_0		"./assets/sprites/xpm/cg_walk_up0.xpm"
 # define XPM_PLAY_UP_1		"./assets/sprites/xpm/cg_walk_up1.xpm"
 # define XPM_PLAY_UP_2		"./assets/sprites/xpm/cg_walk_up2.xpm"
 # define XPM_PLAY_UP_3		"./assets/sprites/xpm/cg_walk_up3.xpm"
-# define XPM_PLAY_DOWN_0	"./assets/sprites/xpm/cg_walk_down0.xpm"
+//# define XPM_PLAY_DOWN_0	"./assets/sprites/xpm/cg_walk_down0.xpm"
+# define XPM_PLAY_DOWN_0	"./assets/sprites/xpm/play_down1.xpm"
 # define XPM_PLAY_DOWN_1	"./assets/sprites/xpm/cg_walk_down1.xpm"
 # define XPM_PLAY_DOWN_2	"./assets/sprites/xpm/cg_walk_down2.xpm"
 # define XPM_PLAY_DOWN_3	"./assets/sprites/xpm/cg_walk_down3.xpm"
@@ -107,63 +109,83 @@ typedef struct s_rect
 # define XPM_PLAY_RIGHT_3	"./assets/sprites/xpm/cg_walk_right3.xpm"
 # define XPM_PLAY_WIN		"./assets/sprites/xpm/cg_item.xpm"
 # define XPM_PLAY_DEAD		"./assets/sprites/xpm/cg_dead.xpm"
-# define XPM_COLL_0			"./assets/sprites/xpm/cow_front0.xpm"
+//# define XPM_COLL_0			"./assets/sprites/xpm/cow_front0.xpm"
+# define XPM_COLL_0			"./assets/sprites/xpm/coll.xpm"
 # define XPM_COLL_1			"./assets/sprites/xpm/cow_front1.xpm"
-# define XPM_EXIT			"./assets/sprites/xpm/firewood.xpm"
+//# define XPM_EXIT			"./assets/sprites/xpm/firewood.xpm"
+# define XPM_EXIT			"./assets/sprites/xpm/exit.xpm"
 # define XPM_SNEK_0			"./assets/sprites/xpm/snake_right0.xpm"
 # define XPM_SNEK_1			"./assets/sprites/xpm/snake_right1.xpm"
 # define XPM_SNEK_2			"./assets/sprites/xpm/snake_right2.xpm"
 # define XPM_SNEK_3			"./assets/sprites/xpm/snake_right3.xpm"
 
-typedef struct s_img
+/* typedef struct s_img
 {
     void	*mlx_img;
     char	*addr;
-    int		bpp; /* bits per pixel */
+    int		bpp; //bits per pixel
     int		line_len;
     int		endian;
-}	t_img;
+}	t_img; */
+
+typedef struct s_map
+{
+	char	**map;
+	int		maprows; /* bits per pixel */
+	int		mapcols;
+}	t_map;
+
+typedef struct s_sprite
+{
+	void	*wall;
+	void	*floo;
+	void	*coll;
+	void	*exit;
+	void	*play;
+	void	*snek;
+}	t_sprite;
 
 typedef struct s_data
 {
 	void		*mlx_ptr; // MLX pointer
 	void		*win_ptr; // MLX window pointer
-	int			spr_size;
+	//int			spr_size;
 	//void		*textures[5]; // MLX image pointers (on the stack)
-	//t_map		*map; // Map pointer (contains map details - preferably kept on the stack)
-	t_img	img; //temp, ab blog
+	t_map		map; // Map pointer (contains map details - preferably kept on the stack)
+	t_sprite	sprites;
+	int			width;
+	int			height;
+	//t_img	img; //temp, ab blog
 }	t_data;
 
-typedef struct s_rect
+/* typedef struct s_rect
 {
     int	x;
     int	y;
     int width;
     int height;
     int color;
-}	t_rect;
-
-typedef struct s_sprite
-{
-	void	*spr;
-    int	x;
-    int	y;
-    int width;
-    int height;
-    int color;
-}	t_sprite;
+}	t_rect; */
 
 //utils.c
-int on_destroy(t_data *data);
-void	img_pix_put(t_img *img, int x, int y, int color);
+int		on_destroy(t_data *data);
+//void	img_pix_put(t_img *img, int x, int y, int color);
+int		load_assets(t_data *data);
+void	init_assets(t_data *data);
 
 //rendering.c
-void	render_background(t_img *img, int color);
-int render_rect(t_img *img, t_rect rect);
-int	render(t_data *data);
+//void	render_background(t_img *img, int color);
+//int render_rect(t_img *img, t_rect rect);
+//int	render(t_data *data);
 
 //keys.c
 int	handle_keypress(int keysym);
 int	handle_keyrelease(int keysym, t_data *data);
+
+//utils_map
+void	display_maplines(char *line, t_data *data, int lines);
+int	display_mapfull(t_data *data);
+void	populate_map(int linecount, char *map, t_data *data);
+int	read_ber(char *map, t_data *data);
 
 #endif
