@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 12:36:52 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/08/01 17:37:30 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/08/01 19:53:37 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include <stdlib.h>
 # include <string.h>
@@ -38,16 +38,10 @@
 # define XPM_COLL_0			"./assets/sprites/food0.xpm"
 # define XPM_EXIT			"./assets/sprites/house.xpm"
 # define XPM_SNEK_0			"./assets/sprites/snakeright0.xpm"
+# define XPM_SNEK_1			"./assets/sprites/snakeright1.xpm"
+# define XPM_SNEK_2			"./assets/sprites/snakeright2.xpm"
+# define XPM_SNEK_3			"./assets/sprites/snakeright3.xpm"
 # define XPM_MOVE			"./assets/sprites/movementtile.xpm"
-
-typedef struct s_img
-{
-	void	*mlx_img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}	t_img;
 
 typedef struct s_mapd
 {
@@ -71,7 +65,10 @@ typedef struct s_sprite
 	void	*coll;
 	void	*exit;
 	void	*play;
-	void	*snek;
+	void	*snek0;
+	void	*snek1;
+	void	*snek2;
+	void	*snek3;
 	void	*move;
 }	t_sprite;
 
@@ -83,6 +80,7 @@ typedef struct s_data
 	t_sprite	sprites;
 	int			spr_size;
 	int			movement;
+	int			frame;
 }	t_data;
 
 //so_long.c
@@ -128,4 +126,8 @@ void	remove_map(t_data *gdata);
 //utilities.c
 char	*remove_trailing(char *s1, char const *set);
 void	free_visited(int **visited, t_data *gdata);
+void	load_snek(t_data *gdata);
+int		increment_frame(t_data *gdata);
+//animate_bonus.c
+void	snek_animate(t_data *gdata, int x, int y);
 #endif

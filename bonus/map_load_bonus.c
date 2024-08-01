@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_load.c                                         :+:      :+:    :+:   */
+/*   map_load_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 17:48:55 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/08/01 16:49:18 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/08/01 19:08:58 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	map_load(char *ber_file, t_data *gdata);
 int		read_ber(char *ber_file);

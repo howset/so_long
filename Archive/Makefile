@@ -20,37 +20,21 @@ endif
 
 ## Name(s)
 NAME-SL				= so_long
-NAME-BONUS			= so_long_bonus
 NAME-LIBFT			= ./lib/libft.a
 NAME-MLX			= $(MLXDIR)libmlx.a
 
 ## Sources & headers & others
-SRC-SL				= ./src/so_long.c\
-						./src/initrun_mlx.c\
-						./src/terminate.c\
-						./src/render.c\
+SRC-SL				= ./src/so_long.c \
+						./src/initial.c \
 						./src/map_load.c\
-						./src/map_check1.c\
-						./src/map_check2.c\
+						./src/utils.c \
+						./src/rendering_load.c\
+						./src/keys2.c\
+						./src/run.c\
 						./src/player.c\
-						./src/utilities.c\
-
-SRC-BONUS			= ./bonus/so_long_bonus.c\
-						./bonus/initrun_mlx_bonus.c\
-						./bonus/terminate_bonus.c\
-						./bonus/render_bonus.c\
-						./bonus/map_load_bonus.c\
-						./bonus/map_check1_bonus.c\
-						./bonus/map_check2_bonus.c\
-						./bonus/player_bonus.c\
-						./bonus/utilities_bonus.c\
-						./bonus/animate_bonus.c
+						./src/map_check.c\
 
 HEADER				= ./src/
-HEADERFILES			= ./src/so_long.h
-HEADERB				= ./bonus/
-HEADERFILESB		= ./bonus/so_long_bonus.h
-
 
 ## Compiler, flags, & other commands
 CC 					= cc
@@ -69,7 +53,7 @@ COLOFF				=	\033[0m
 
 all:				$(NAME-MLX) $(NAME-LIBFT) $(NAME-SL)
 
-bonus:				$(NAME-MLX) $(NAME-LIBFT) $(NAME-BONUS)
+#bonus				$(NAME-BONUS) $(NAME-MLX) $(NAME-LIBFT) $(NAME-SL)
 
 clean:
 					@$(RM) $(NAME-SL)
@@ -113,16 +97,10 @@ $(NAME-LIBFT):
 		@make -C./lib
 		@echo "$(GREEN)Libft ready!$(COLOFF)"
 
-$(NAME-SL): $(SRC-SL) $(NAME-LIBFT) $(NAME-MLX) $(HEADERFILES)
+$(NAME-SL): $(SRC-SL) $(NAME-LIBFT) $(NAME-MLX)
 		@echo "$(YELLOW)Compiling so long.$(COLOFF)"
 		@$(CC) $(CFLAGS) $(HEADER) $(SRC-SL) $(NAME-LIBFT) $(NAME-MLX) \
 		-L${MLXDIR} $(MLXFLAGS) -o $(NAME-SL)
-		@echo "$(GREEN)So Long ready!$(COLOFF)"
-		
-$(NAME-BONUS): $(SRC-BONUS) $(NAME-LIBFT) $(NAME-MLX) $(HEADERFILESB)
-		@echo "$(YELLOW)Compiling so long.$(COLOFF)"
-		@$(CC) $(CFLAGS) $(HEADERB) $(SRC-BONUS) $(NAME-LIBFT) $(NAME-MLX) \
-		-L${MLXDIR} $(MLXFLAGS) -o $(NAME-BONUS)
 		@echo "$(GREEN)So Long ready!$(COLOFF)"
 
 ##------------------------------------------------------------------##

@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/31 18:45:00 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/07/31 18:53:56 by hsetyamu         ###   ########.fr       */
+/*   Created: 2024/05/18 17:28:53 by hsetyamu          #+#    #+#             */
+/*   Updated: 2024/07/31 15:04:43 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "so_long.h"
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+int	main(int argc, char *argv[])
 {
-	unsigned int	i;
-
-	i = 0;
-	while (src[i] && i < n)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	t_data	gdata;
+	
+	check_args(argc, argv[1]);
+	initialize_gdata(&gdata);
+	map_load(argv[1], &gdata);
+	check_elements(&gdata);
+	initialize_mlx(&gdata);
+	rendering(&gdata);
+	run_mlx(&gdata);
+	return (0);
 }

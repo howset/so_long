@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   so_long_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 17:28:53 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/08/01 16:53:48 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/08/01 19:29:49 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	check_args(int argc, char *argv);
 t_data	initialize_gdata(t_data *gdata);
@@ -71,9 +71,13 @@ t_data	initialize_gdata(t_data *gdata)
 	gdata->sprites.coll = NULL;
 	gdata->sprites.exit = NULL;
 	gdata->sprites.play = NULL;
-	gdata->sprites.snek = NULL;
+	gdata->sprites.snek0 = NULL;
+	gdata->sprites.snek1 = NULL;
+	gdata->sprites.snek2 = NULL;
+	gdata->sprites.snek3 = NULL;
 	gdata->sprites.move = NULL;
 	gdata->spr_size = SPR_SIZE;
 	gdata->movement = 0;
+	gdata->frame = 0;
 	return (*gdata);
 }

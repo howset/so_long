@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player.c                                           :+:      :+:    :+:   */
+/*   player_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 23:24:00 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/08/01 16:49:30 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/08/01 19:10:39 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	update_pos(t_data *gdata, int horizontal, int length);
 void	update_spr(t_data *gdata);
@@ -74,6 +74,12 @@ void	tile_check(t_data *gdata)
 		&& gdata->map_details.coll_check == 0)
 	{
 		ft_printf("Win!\nHad lunch and now at home!!\n");
+		on_quit(gdata);
+	}
+	if (gdata->map_details.map[gdata->map_details.pl_pos_y]
+		[gdata->map_details.pl_pos_x] == SNEK)
+	{
+		ft_printf("Lose!\nBitten by snake!!\n");
 		on_quit(gdata);
 	}
 }
