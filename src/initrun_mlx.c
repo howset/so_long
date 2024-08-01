@@ -6,7 +6,7 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:18:33 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/08/01 16:49:05 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/08/01 22:43:54 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	run_mlx(t_data *gdata)
 	mlx_hook(gdata->win_ptr, KeyPress, KeyPressMask, key_press, gdata);
 	mlx_hook(gdata->win_ptr, DestroyNotify, StructureNotifyMask, \
 	on_quit, gdata);
+	mlx_hook(gdata->win_ptr, Expose, ExposureMask, rendering, gdata);
 	mlx_loop(gdata->mlx_ptr);
 }
 

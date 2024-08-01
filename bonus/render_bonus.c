@@ -6,13 +6,13 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 12:51:22 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/08/01 20:36:25 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/08/01 22:46:36 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-void	rendering(t_data *gdata);
+int		rendering(t_data *gdata);
 void	load_xpm(t_data *gdata);
 int		render_xpm(t_data *gdata);
 void	display_xpm(char *line, t_data *gdata, int lines);
@@ -23,10 +23,11 @@ Then it calls the real rendering function render_xpm which calls the display_xpm
 function line by line. The display_xpm function iterates through the line for
 the letter code in the map. */
 
-void	rendering(t_data *gdata)
+int	rendering(t_data *gdata)
 {
 	load_xpm(gdata);
 	render_xpm(gdata);
+	return (0);
 }
 
 //load sprites (xpms)

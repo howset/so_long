@@ -6,7 +6,7 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 12:36:52 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/08/01 21:06:56 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/08/01 22:47:34 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void	initialize_mlx(t_data *gdata);
 void	run_mlx(t_data *gdata);
 int		key_press(int keysym, t_data *gdata);
 //render.c
-void	rendering(t_data *gdata);
+int		rendering(t_data *gdata);
 void	load_xpm(t_data *gdata);
 int		render_xpm(t_data *gdata);
 void	display_xpm(char *line, t_data *gdata, int lines);
@@ -136,7 +136,7 @@ void	remove_map(t_data *gdata);
 char	*remove_trailing(char *s1, char const *set);
 void	free_visited(int **visited, t_data *gdata);
 int		increment_frame(t_data *gdata);
-void	remove_animated_xpm(t_data *gdata)
+void	remove_animated_xpm(t_data *gdata);
 //animate_bonus.c
 void	snek_animate(t_data *gdata, int x, int y);
 void	cow_animate(t_data *gdata, int x, int y);

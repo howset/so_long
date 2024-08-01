@@ -6,7 +6,7 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 12:36:52 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/08/01 17:37:30 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/08/01 22:44:38 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void	initialize_mlx(t_data *gdata);
 void	run_mlx(t_data *gdata);
 int		key_press(int keysym, t_data *gdata);
 //render.c
-void	rendering(t_data *gdata);
+int		rendering(t_data *gdata);
 void	load_xpm(t_data *gdata);
 int		render_xpm(t_data *gdata);
 void	display_xpm(char *line, t_data *gdata, int lines);
