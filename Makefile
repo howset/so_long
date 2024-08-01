@@ -73,6 +73,7 @@ bonus:				$(NAME-MLX) $(NAME-LIBFT) $(NAME-BONUS)
 
 clean:
 					@$(RM) $(NAME-SL)
+					@$(RM) $(NAME-BONUS)
 					@echo "$(RED)So Long's gone, baby, gone!$(COLOFF)"
 
 fclean:				clean
