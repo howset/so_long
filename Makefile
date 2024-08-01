@@ -44,7 +44,8 @@ SRC-BONUS			= ./bonus/so_long_bonus.c\
 						./bonus/map_check2_bonus.c\
 						./bonus/player_bonus.c\
 						./bonus/utilities_bonus.c\
-						./bonus/animate_bonus.c
+						./bonus/animate_bonus.c\
+						./bonus/animation_load_bonus.c\
 
 HEADER				= ./src/
 HEADERFILES			= ./src/so_long.h

@@ -6,7 +6,7 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 23:24:00 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/08/01 19:10:39 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/08/01 21:03:31 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	tile_check(t_data *gdata)
 		[gdata->map_details.pl_pos_x] == EXIT
 		&& gdata->map_details.coll_check == 0)
 	{
-		ft_printf("Win!\nHad lunch and now at home!!\n");
+		ft_printf("Win!\nGathered cows and now together at home!!\n");
 		on_quit(gdata);
 	}
 	if (gdata->map_details.map[gdata->map_details.pl_pos_y]
@@ -90,9 +90,8 @@ void	player_spr(t_data *gdata)
 	char	*moves;
 	char	*movement;
 
-	mlx_put_image_to_window(gdata->mlx_ptr, gdata->win_ptr, gdata->sprites.play,
-		SPR_SIZE * gdata->map_details.pl_pos_x, \
-		SPR_SIZE * gdata->map_details.pl_pos_y);
+	player_animate(gdata, gdata->map_details.pl_pos_x, \
+	gdata->map_details.pl_pos_y);
 	mlx_put_image_to_window(gdata->mlx_ptr, gdata->win_ptr,
 		gdata->sprites.move, 0, 0);
 	gdata->movement += 1;

@@ -6,7 +6,7 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 17:28:53 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/08/01 19:29:49 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/08/01 20:29:50 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	check_args(int argc, char *argv);
 t_data	initialize_gdata(t_data *gdata);
+void	initialize_sprites(t_data *gdata);
 
 int	main(int argc, char *argv[])
 {
@@ -66,18 +67,27 @@ t_data	initialize_gdata(t_data *gdata)
 	gdata->map_details.ex_pos_x = 0;
 	gdata->map_details.ex_pos_y = 0;
 	gdata->map_details.coll_ff = 0;
+	gdata->spr_size = SPR_SIZE;
+	gdata->movement = 0;
+	gdata->frame = 0;
+	initialize_sprites(gdata);
+	return (*gdata);
+}
+
+void	initialize_sprites(t_data *gdata)
+{
 	gdata->sprites.wall = NULL;
 	gdata->sprites.floo = NULL;
-	gdata->sprites.coll = NULL;
+	gdata->sprites.coll0 = NULL;
+	gdata->sprites.coll1 = NULL;
 	gdata->sprites.exit = NULL;
-	gdata->sprites.play = NULL;
+	gdata->sprites.play0 = NULL;
+	gdata->sprites.play1 = NULL;
+	gdata->sprites.play2 = NULL;
+	gdata->sprites.play3 = NULL;
 	gdata->sprites.snek0 = NULL;
 	gdata->sprites.snek1 = NULL;
 	gdata->sprites.snek2 = NULL;
 	gdata->sprites.snek3 = NULL;
 	gdata->sprites.move = NULL;
-	gdata->spr_size = SPR_SIZE;
-	gdata->movement = 0;
-	gdata->frame = 0;
-	return (*gdata);
 }

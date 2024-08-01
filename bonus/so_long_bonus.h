@@ -6,7 +6,7 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 12:36:52 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/08/01 19:53:37 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/08/01 21:06:56 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,11 @@
 # define XPM_WALL			"./assets/sprites/naturetile203.xpm"
 # define XPM_FLOO			"./assets/sprites/floortile268.xpm"
 # define XPM_PLAY_DOWN_0	"./assets/sprites/cgwalkdown0.xpm"
-# define XPM_COLL_0			"./assets/sprites/food0.xpm"
+# define XPM_PLAY_DOWN_1	"./assets/sprites/cgwalkdown1.xpm"
+# define XPM_PLAY_DOWN_2	"./assets/sprites/cgwalkdown2.xpm"
+# define XPM_PLAY_DOWN_3	"./assets/sprites/cgwalkdown3.xpm"
+# define XPM_COLL_0			"./assets/sprites/cowfront0.xpm"
+# define XPM_COLL_1			"./assets/sprites/cowfront1.xpm"
 # define XPM_EXIT			"./assets/sprites/house.xpm"
 # define XPM_SNEK_0			"./assets/sprites/snakeright0.xpm"
 # define XPM_SNEK_1			"./assets/sprites/snakeright1.xpm"
@@ -62,9 +66,13 @@ typedef struct s_sprite
 {
 	void	*wall;
 	void	*floo;
-	void	*coll;
+	void	*coll0;
+	void	*coll1;
 	void	*exit;
-	void	*play;
+	void	*play0;
+	void	*play1;
+	void	*play2;
+	void	*play3;
 	void	*snek0;
 	void	*snek1;
 	void	*snek2;
@@ -86,6 +94,7 @@ typedef struct s_data
 //so_long.c
 void	check_args(int argc, char *argv);
 t_data	initialize_gdata(t_data *gdata);
+void	initialize_sprites(t_data *gdata);
 //map_load.c
 void	map_load(char *ber_file, t_data *gdata);
 int		read_ber(char *ber_file);
@@ -126,8 +135,14 @@ void	remove_map(t_data *gdata);
 //utilities.c
 char	*remove_trailing(char *s1, char const *set);
 void	free_visited(int **visited, t_data *gdata);
-void	load_snek(t_data *gdata);
 int		increment_frame(t_data *gdata);
+void	remove_animated_xpm(t_data *gdata)
 //animate_bonus.c
 void	snek_animate(t_data *gdata, int x, int y);
+void	cow_animate(t_data *gdata, int x, int y);
+void	player_animate(t_data *gdata, int x, int y);
+//animation_load_bonus.c
+void	load_snek(t_data *gdata);
+void	load_cow(t_data *gdata);
+void	load_player(t_data *gdata);
 #endif

@@ -6,7 +6,7 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 16:22:37 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/08/01 19:31:21 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/08/01 21:05:47 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,24 +74,13 @@ void	remove_map(t_data *gdata)
 // remove xpm images (destroy)
 void	remove_xpm(t_data *gdata)
 {
+	remove_animated_xpm(gdata);
 	if (gdata->sprites.wall)
 		mlx_destroy_image(gdata->mlx_ptr, gdata->sprites.wall);
 	if (gdata->sprites.floo)
 		mlx_destroy_image(gdata->mlx_ptr, gdata->sprites.floo);
-	if (gdata->sprites.coll)
-		mlx_destroy_image(gdata->mlx_ptr, gdata->sprites.coll);
 	if (gdata->sprites.exit)
 		mlx_destroy_image(gdata->mlx_ptr, gdata->sprites.exit);
-	if (gdata->sprites.play)
-		mlx_destroy_image(gdata->mlx_ptr, gdata->sprites.play);
-	if (gdata->sprites.snek0)
-		mlx_destroy_image(gdata->mlx_ptr, gdata->sprites.snek0);
-	if (gdata->sprites.snek1)
-		mlx_destroy_image(gdata->mlx_ptr, gdata->sprites.snek1);
-	if (gdata->sprites.snek2)
-		mlx_destroy_image(gdata->mlx_ptr, gdata->sprites.snek2);
-	if (gdata->sprites.snek3)
-		mlx_destroy_image(gdata->mlx_ptr, gdata->sprites.snek3);
 	if (gdata->sprites.move)
 		mlx_destroy_image(gdata->mlx_ptr, gdata->sprites.move);
 }

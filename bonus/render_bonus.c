@@ -6,7 +6,7 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 12:51:22 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/08/01 19:43:41 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/08/01 20:36:25 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,10 @@ void	load_xpm(t_data *gdata)
 			XPM_WALL, &gdata->spr_size, &gdata->spr_size);
 	gdata->sprites.floo = mlx_xpm_file_to_image(gdata->mlx_ptr,
 			XPM_FLOO, &gdata->spr_size, &gdata->spr_size);
-	gdata->sprites.coll = mlx_xpm_file_to_image(gdata->mlx_ptr,
-			XPM_COLL_0, &gdata->spr_size, &gdata->spr_size);
+	load_cow(gdata);
 	gdata->sprites.exit = mlx_xpm_file_to_image(gdata->mlx_ptr,
 			XPM_EXIT, &gdata->spr_size, &gdata->spr_size);
-	gdata->sprites.play = mlx_xpm_file_to_image(gdata->mlx_ptr,
-			XPM_PLAY_DOWN_0, &gdata->spr_size, &gdata->spr_size);
+	load_player(gdata);
 	load_snek(gdata);
 	gdata->sprites.move = mlx_xpm_file_to_image(gdata->mlx_ptr,
 			XPM_MOVE, &gdata->spr_size, &gdata->spr_size);
@@ -77,15 +75,12 @@ void	display_xpm(char *line, t_data *gdata, int lines)
 			mlx_put_image_to_window(gdata->mlx_ptr, gdata->win_ptr, \
 		gdata->sprites.floo, i * gdata->spr_size, (lines * gdata->spr_size));
 		else if (line[i] == 'C')
-			mlx_put_image_to_window(gdata->mlx_ptr, gdata->win_ptr, \
-		gdata->sprites.coll, (i * gdata->spr_size), (lines * gdata->spr_size));
+			cow_animate(gdata, i, lines);
 		else if (line[i] == 'E')
 			mlx_put_image_to_window(gdata->mlx_ptr, gdata->win_ptr, \
 		gdata->sprites.exit, (i * gdata->spr_size), (lines * gdata->spr_size));
 		else if (line[i] == 'S')
 			snek_animate(gdata, i, lines);
-			/* mlx_put_image_to_window(gdata->mlx_ptr, gdata->win_ptr, \
-		gdata->sprites.snek, (i * gdata->spr_size), (lines * gdata->spr_size)); */
 		else if (line[i] == 'P')
 			pl_location(gdata, i, lines);
 		i++;
