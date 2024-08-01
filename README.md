@@ -1,6 +1,7 @@
 # So Long
 
 ## Mandatory
+![Mandatory](./assets/scr_sht/screen1.png "mandatory")
 
 ### Shortcuts (Mandatory)
 
@@ -61,6 +62,7 @@ valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose -
 
 
 ## Bonus
+![Bonus](./assets/scr_sht/screen2.png "bonus")
 
 ### Notes (Bonus)
 - Snek, cow, and player now animates!!
