@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check1_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: hsetya <hsetya@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 14:38:35 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/08/01 19:09:16 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/08/01 23:08:55 by hsetya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	map_check_form(t_data *gdata);
 void	check_rectangle(t_data *gdata);
 void	check_walls(t_data *gdata);
 
+//check the elements in map
 void	map_check_elements(t_data *gdata)
 {
 	gather_elements(gdata);
@@ -29,6 +30,7 @@ void	map_check_elements(t_data *gdata)
 		quit_message(gdata, "Error\nWrong number of collectibles.");
 }
 
+//gather elements and chekc for valid chars and store important ones
 void	gather_elements(t_data *gdata)
 {
 	int	i;
@@ -54,12 +56,14 @@ void	gather_elements(t_data *gdata)
 	}
 }
 
+//check if map is a rectangle and closed
 void	map_check_form(t_data *gdata)
 {
 	check_rectangle(gdata);
 	check_walls(gdata);
 }
 
+//rectangle check
 void	check_rectangle(t_data *gdata)
 {
 	int		i;
@@ -77,6 +81,7 @@ void	check_rectangle(t_data *gdata)
 	}
 }
 
+//surrounding walls check
 void	check_walls(t_data *gdata)
 {
 	int	i;

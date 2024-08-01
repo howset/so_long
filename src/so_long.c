@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: hsetya <hsetya@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 17:28:53 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/08/01 16:53:48 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/08/01 23:05:30 by hsetya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int argc, char *argv[])
 	return (0);
 }
 
-// preliminary checks (argument checks)
+//preliminary checks (argument checks)
 void	check_args(int argc, char *argv)
 {
 	int		fd;
@@ -50,7 +50,7 @@ void	check_args(int argc, char *argv)
 		quit_message(NULL, "Error\nOnly accepts .ber files.");
 }
 
-// initialize_gdata initializes values in the struct gdata.
+//initialize_gdata initializes values in the struct gdata.
 t_data	initialize_gdata(t_data *gdata)
 {
 	gdata->mlx_ptr = NULL;

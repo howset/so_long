@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   animate_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: hsetya <hsetya@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 18:12:39 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/08/01 20:44:54 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/08/01 23:10:42 by hsetya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
+//animate snek according to frame (4 sprites)
 void	snek_animate(t_data *gdata, int x, int y)
 {
 	if (gdata->frame == 0)
@@ -28,6 +29,7 @@ void	snek_animate(t_data *gdata, int x, int y)
 		gdata->sprites.snek3, x * 64, y * 64);
 }
 
+//animate cow. just repeat 2 sprites instead of 4
 void	cow_animate(t_data *gdata, int x, int y)
 {
 	if (gdata->frame == 0)
@@ -44,6 +46,7 @@ void	cow_animate(t_data *gdata, int x, int y)
 		gdata->sprites.coll1, x * 64, y * 64);
 }
 
+//animate player
 void	player_animate(t_data *gdata, int x, int y)
 {
 	if (gdata->frame == 0)

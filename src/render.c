@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: hsetya <hsetya@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 12:51:22 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/08/01 22:44:28 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/08/01 23:02:47 by hsetya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	rendering(t_data *gdata);
+int		rendering(t_data *gdata);
 void	load_xpm(t_data *gdata);
 int		render_xpm(t_data *gdata);
 void	display_xpm(char *line, t_data *gdata, int lines);
@@ -93,6 +93,7 @@ void	display_xpm(char *line, t_data *gdata, int lines)
 	}
 }
 
+//get player location
 void	pl_location(t_data *gdata, int i, int lines)
 {
 	gdata->map_details.pl_pos_x = i;

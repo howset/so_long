@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check2_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: hsetya <hsetya@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 15:40:13 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/08/01 19:09:19 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/08/01 23:00:59 by hsetya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	map_check_ff(t_data *gdata);
 void	pl_pos(t_data *gdata, int i, int *player_col, int *player_row);
 void	ex_pos(t_data *gdata);
 void	flood_fill(t_data *gdata, int y, int x, int **visited);
-int		validmove(t_data *gdata, int **visited, int y, int x);
+int		valid_move(t_data *gdata, int **visited, int y, int x);
 
 void	map_check_ff(t_data *gdata)
 {
@@ -92,7 +92,7 @@ void	ex_pos(t_data *gdata)
 
 void	flood_fill(t_data *gdata, int y, int x, int **visited)
 {
-	if (!validmove(gdata, visited, y, x) || visited[y][x])
+	if (!valid_move(gdata, visited, y, x) || visited[y][x])
 		return ;
 	if (gdata->map_details.map[y][x] == 'C')
 		gdata->map_details.coll_ff += 1;
@@ -103,7 +103,9 @@ void	flood_fill(t_data *gdata, int y, int x, int **visited)
 	flood_fill(gdata, y, x + 1, visited);
 }
 
-int	validmove(t_data *gdata, int **visited, int y, int x)
+int	valid_move(t_data *gdata, int **visited, int y, int x)
 {
-	return (gdata->map_details.map[y][x] != '1' && !visited[y][x]);
+	if (gdata->map_details.map[y][x] != '1' && !visited[y][x])
+		return (1);
+	return (0);
 }

@@ -122,7 +122,7 @@ $(NAME-SL): $(SRC-SL) $(NAME-LIBFT) $(NAME-MLX) $(HEADERFILES)
 		@echo "$(GREEN)So Long ready!$(COLOFF)"
 		
 $(NAME-BONUS): $(SRC-BONUS) $(NAME-LIBFT) $(NAME-MLX) $(HEADERFILESB)
-		@echo "$(YELLOW)Compiling so long.$(COLOFF)"
+		@echo "$(YELLOW)Compiling so long bonus.$(COLOFF)"
 		@$(CC) $(CFLAGS) $(HEADERB) $(SRC-BONUS) $(NAME-LIBFT) $(NAME-MLX) \
 		-L${MLXDIR} $(MLXFLAGS) -o $(NAME-BONUS)
 		@echo "$(GREEN)So Long ready!$(COLOFF)"

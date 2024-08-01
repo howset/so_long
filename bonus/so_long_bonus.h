@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: hsetya <hsetya@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 12:36:52 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/08/01 22:47:34 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/08/01 23:01:11 by hsetya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ void	map_check_ff(t_data *gdata);
 void	ex_pos(t_data *gdata);
 void	pl_pos(t_data *gdata, int i, int *player_col, int *player_row);
 void	flood_fill(t_data *gdata, int y, int x, int **visited);
-int		validmove(t_data *gdata, int **visited, int y, int x);
+int		valid_move(t_data *gdata, int **visited, int y, int x);
 //initrun_mlx.c
 void	initialize_mlx(t_data *gdata);
 void	run_mlx(t_data *gdata);

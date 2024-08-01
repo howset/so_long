@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: hsetya <hsetya@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 17:28:53 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/08/01 20:29:50 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/08/01 23:11:35 by hsetya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ t_data	initialize_gdata(t_data *gdata)
 	return (*gdata);
 }
 
+//separated because too long
 void	initialize_sprites(t_data *gdata)
 {
 	gdata->sprites.wall = NULL;

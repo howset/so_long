@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   animation_load_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: hsetya <hsetya@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 20:48:37 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/08/01 21:01:03 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/08/01 23:10:06 by hsetya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
+//load snek sprites
 void	load_snek(t_data *gdata)
 {
 	gdata->sprites.snek0 = mlx_xpm_file_to_image(gdata->mlx_ptr, XPM_SNEK_0, \
@@ -24,6 +25,7 @@ void	load_snek(t_data *gdata)
 	&gdata->spr_size, &gdata->spr_size);
 }
 
+//load snek sprites
 void	load_cow(t_data *gdata)
 {
 	gdata->sprites.coll0 = mlx_xpm_file_to_image(gdata->mlx_ptr, XPM_COLL_0, \
@@ -32,6 +34,7 @@ void	load_cow(t_data *gdata)
 	&gdata->spr_size, &gdata->spr_size);
 }
 
+//load snek sprites
 void	load_player(t_data *gdata)
 {
 	gdata->sprites.play0 = \

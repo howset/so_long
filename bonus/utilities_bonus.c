@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utilities_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: hsetya <hsetya@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 18:21:17 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/08/01 21:05:18 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/08/01 23:12:46 by hsetya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ char	*remove_trailing(char *c, char const *str)
 	return (trimmed);
 }
 
+//helper to remove_xpm, because too long
 void	remove_animated_xpm(t_data *gdata)
 {
 	if (gdata->sprites.coll0)
