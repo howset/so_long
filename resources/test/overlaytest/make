@@ -1,0 +1,16 @@
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -I/minilibx_linux
+
+# Example target
+all: layertest
+
+sl_overlay_test: layertest.o
+    $(CC) $(CFLAGS) -o layertest layertest.o -L/minilibx_linux -lmlx -lXext -lX11 -lm
+
+sl_overlay_test.o: layertest.c
+    $(CC) $(CFLAGS) -c layertest.c
+
+clean:
+    rm -f layertest.o layertest
+
+.PHONY: all clean

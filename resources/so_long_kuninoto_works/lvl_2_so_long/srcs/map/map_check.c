@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 17:38:12 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2023/02/09 00:15:02 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2024/08/01 13:09:34 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	check_elements(t_game *game)
 			else if (game->map.map[i][j] == PLAYER)
 			{
 				game->map.player += 1;
-				game->map.player_pos = (t_point){j, i};
+				game->map.player_pos = (t_point){j, i}; // player position
 			}
 		}
 	}

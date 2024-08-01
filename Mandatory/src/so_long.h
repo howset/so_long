@@ -6,7 +6,7 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 12:36:52 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/08/01 17:01:35 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/08/01 17:37:30 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ void	rendering(t_data *gdata);
 void	load_xpm(t_data *gdata);
 int		render_xpm(t_data *gdata);
 void	display_xpm(char *line, t_data *gdata, int lines);
+void	pl_location(t_data *gdata, int i, int lines);
 //player.c
 void	update_pos(t_data *gdata, int horizontal, int length);
 void	update_spr(t_data *gdata);

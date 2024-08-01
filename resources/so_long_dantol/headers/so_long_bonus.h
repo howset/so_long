@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dtolmaco <dtolmaco@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 10:43:12 by dtolmaco          #+#    #+#             */
-/*   Updated: 2023/12/09 15:28:26 by dtolmaco         ###   ########.fr       */
+/*   Updated: 2024/07/31 18:12:46 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # define UP 2
 # define DOWN 3
 
-# include "mlx.h"
+# include "../mlx/mlx.h"
 # include "../get_next_line/get_next_line.h"
 # include <stdlib.h>
 # include <fcntl.h>

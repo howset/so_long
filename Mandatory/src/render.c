@@ -6,15 +6,17 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 12:51:22 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/08/01 16:50:58 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/08/01 17:38:47 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+void	rendering(t_data *gdata);
 void	load_xpm(t_data *gdata);
-void	display_xpm(char *line, t_data *gdata, int lines);
 int		render_xpm(t_data *gdata);
+void	display_xpm(char *line, t_data *gdata, int lines);
+void	pl_location(t_data *gdata, int i, int lines);
 
 /* The rendering func is responsible for loading the xpms by calling load_xpm.
 Then it calls the real rendering function render_xpm which calls the display_xpm
@@ -46,6 +48,21 @@ void	load_xpm(t_data *gdata)
 			XPM_MOVE, &gdata->spr_size, &gdata->spr_size);
 }
 
+//just a func to call display_xpm line-by-line
+int	render_xpm(t_data *gdata)
+{
+	int		i;
+
+	i = 0;
+	while (gdata->map_details.map[i])
+	{
+		display_xpm(gdata->map_details.map[i], gdata, i);
+		i++;
+	}
+	player_spr(gdata);
+	return (0);
+}
+
 //display sprites (xpm) 
 void	display_xpm(char *line, t_data *gdata, int lines)
 {
@@ -70,25 +87,13 @@ void	display_xpm(char *line, t_data *gdata, int lines)
 			mlx_put_image_to_window(gdata->mlx_ptr, gdata->win_ptr, \
 		gdata->sprites.snek, (i * gdata->spr_size), (lines * gdata->spr_size));
 		else if (line[i] == 'P')
-		{
-			gdata->map_details.pl_pos_x = i;
-			gdata->map_details.pl_pos_y = lines;
-		}
+			pl_location(gdata, i, lines);
 		i++;
 	}
 }
 
-//just a func to call display_xpm line-by-line
-int	render_xpm(t_data *gdata)
+void	pl_location(t_data *gdata, int i, int lines)
 {
-	int		i;
-
-	i = 0;
-	while (gdata->map_details.map[i])
-	{
-		display_xpm(gdata->map_details.map[i], gdata, i);
-		i++;
-	}
-	player_spr(gdata);
-	return (0);
+	gdata->map_details.pl_pos_x = i;
+	gdata->map_details.pl_pos_y = lines;
 }

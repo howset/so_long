@@ -6,56 +6,9 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 12:36:52 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/07/26 18:43:14 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/07/31 14:59:40 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/* #ifndef SO_LONG_H
-# define SO_LONG_H
-
-# include <stdlib.h>
-# include <string.h>
-# include <X11/X.h>
-# include <X11/keysym.h>
-# include "../lib/minilibx-linux/mlx.h"
-# include "../lib/src/libft/libft.h"
-# include "../lib/src/get_next_line/get_next_line.h"
-# include "../lib/src/ft_printf/ft_printf.h"
-
-# define WIN_WIDTH 640
-# define WIN_HEIGHT 360
-# define RED_PIXEL 0xFF0000
-# define YELLOW_PIXEL 0xFFFF00
-# define GREY_PIXEL 0x808080
-
-typedef struct s_img
-{
-    void	*mlx_img;
-    char	*addr;
-    int		bpp; //bits per pixel
-    int		line_len;
-    int		endian;
-}	t_img;
-
-typedef struct s_data
-{
-	void		*mlx_ptr; // MLX pointer
-	void		*win_ptr; // MLX window pointer
-	//void		*textures[5]; // MLX image pointers (on the stack)
-	//t_map		*map; // Map pointer (contains map details - preferably kept on the stack)
-	t_img	img; //temp, ab blog
-}	t_data;
-
-typedef struct s_rect
-{
-    int	x;
-    int	y;
-    int width;
-    int height;
-    int color;
-}	t_rect;
-
-#endif */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
@@ -71,15 +24,13 @@ typedef struct s_rect
 # include "../lib/src/get_next_line/get_next_line.h"
 # include "../lib/src/ft_printf/ft_printf.h"
 
-# define WIN_HEIGHT 360
+/* # define WIN_HEIGHT 360
 # define WIN_WIDTH 640
 # define RED_PIXEL 0xFF0000
 # define YELLOW_PIXEL 0xFFFF00
 # define GREY_PIXEL 0x808080
-# define PLAYER_XPM	"./assets/sprites/xpm/cow_front0.xpm"
+# define PLAYER_XPM	"./assets/sprites/xpm/cow_front0.xpm" */
 
-# define SPR_HEIGHT			64
-# define SPR_WIDTH			64
 # define WALL				'1'
 # define FLOO				'0'
 # define COLL				'C'
@@ -87,53 +38,54 @@ typedef struct s_rect
 # define EXIT			 	'E'
 # define SNEK			 	'S'
 
-//# define XPM_WALL			"./assets/sprites/xpm/nature_tile203.xpm"
-# define XPM_WALL			"./assets/sprites/xpm/wall.xpm"
-# define XPM_FLOO			"./assets/sprites/xpm/floor_tile268.xpm"
-# define XPM_PLAY_UP_0		"./assets/sprites/xpm/cg_walk_up0.xpm"
-# define XPM_PLAY_UP_1		"./assets/sprites/xpm/cg_walk_up1.xpm"
-# define XPM_PLAY_UP_2		"./assets/sprites/xpm/cg_walk_up2.xpm"
-# define XPM_PLAY_UP_3		"./assets/sprites/xpm/cg_walk_up3.xpm"
-//# define XPM_PLAY_DOWN_0	"./assets/sprites/xpm/cg_walk_down0.xpm"
-# define XPM_PLAY_DOWN_0	"./assets/sprites/xpm/play_down1.xpm"
-# define XPM_PLAY_DOWN_1	"./assets/sprites/xpm/cg_walk_down1.xpm"
-# define XPM_PLAY_DOWN_2	"./assets/sprites/xpm/cg_walk_down2.xpm"
-# define XPM_PLAY_DOWN_3	"./assets/sprites/xpm/cg_walk_down3.xpm"
-# define XPM_PLAY_LEFT_0	"./assets/sprites/xpm/cg_walk_left0.xpm"
-# define XPM_PLAY_LEFT_1	"./assets/sprites/xpm/cg_walk_left1.xpm"
-# define XPM_PLAY_LEFT_2	"./assets/sprites/xpm/cg_walk_left2.xpm"
-# define XPM_PLAY_LEFT_3	"./assets/sprites/xpm/cg_walk_left3.xpm"
-# define XPM_PLAY_RIGHT_0	"./assets/sprites/xpm/cg_walk_right0.xpm"
-# define XPM_PLAY_RIGHT_1	"./assets/sprites/xpm/cg_walk_right1.xpm"
-# define XPM_PLAY_RIGHT_2	"./assets/sprites/xpm/cg_walk_right2.xpm"
-# define XPM_PLAY_RIGHT_3	"./assets/sprites/xpm/cg_walk_right3.xpm"
-# define XPM_PLAY_WIN		"./assets/sprites/xpm/cg_item.xpm"
-# define XPM_PLAY_DEAD		"./assets/sprites/xpm/cg_dead.xpm"
-//# define XPM_COLL_0			"./assets/sprites/xpm/cow_front0.xpm"
-# define XPM_COLL_0			"./assets/sprites/xpm/coll.xpm"
-# define XPM_COLL_1			"./assets/sprites/xpm/cow_front1.xpm"
-//# define XPM_EXIT			"./assets/sprites/xpm/firewood.xpm"
+# define SPR_SIZE			64
+# define XPM_WALL			"./assets/sprites/xpm/naturetile203.xpm"
+# define XPM_FLOO			"./assets/sprites/xpm/floortile268.xpm"
+# define XPM_PLAY_UP_0		"./assets/sprites/xpm/cgwalkup0.xpm"
+# define XPM_PLAY_UP_1		"./assets/sprites/xpm/cgwalkup1.xpm"
+# define XPM_PLAY_UP_2		"./assets/sprites/xpm/cgwalkup2.xpm"
+# define XPM_PLAY_UP_3		"./assets/sprites/xpm/cgwalkup3.xpm"
+# define XPM_PLAY_DOWN_0	"./assets/sprites/xpm/cgwalkdown0.xpm"
+# define XPM_PLAY_DOWN_1	"./assets/sprites/xpm/cgwalkdown1.xpm"
+# define XPM_PLAY_DOWN_2	"./assets/sprites/xpm/cgwalkdown2.xpm"
+# define XPM_PLAY_DOWN_3	"./assets/sprites/xpm/cgwalkdown3.xpm"
+# define XPM_PLAY_LEFT_0	"./assets/sprites/xpm/cgwalkleft0.xpm"
+# define XPM_PLAY_LEFT_1	"./assets/sprites/xpm/cgwalkleft1.xpm"
+# define XPM_PLAY_LEFT_2	"./assets/sprites/xpm/cgwalkleft2.xpm"
+# define XPM_PLAY_LEFT_3	"./assets/sprites/xpm/cgwalkleft3.xpm"
+# define XPM_PLAY_RIGHT_0	"./assets/sprites/xpm/cgwalkright0.xpm"
+# define XPM_PLAY_RIGHT_1	"./assets/sprites/xpm/cgwalkright1.xpm"
+# define XPM_PLAY_RIGHT_2	"./assets/sprites/xpm/cgwalkright2.xpm"
+# define XPM_PLAY_RIGHT_3	"./assets/sprites/xpm/cgwalkright3.xpm"
+# define XPM_PLAY_WIN		"./assets/sprites/xpm/cgitem.xpm"
+# define XPM_PLAY_DEAD		"./assets/sprites/xpm/cgdead.xpm"
+# define XPM_COLL_0			"./assets/sprites/xpm/cowfront0.xpm"
+# define XPM_COLL_1			"./assets/sprites/xpm/cowfront1.xpm"
 # define XPM_EXIT			"./assets/sprites/xpm/exit.xpm"
-# define XPM_SNEK_0			"./assets/sprites/xpm/snake_right0.xpm"
-# define XPM_SNEK_1			"./assets/sprites/xpm/snake_right1.xpm"
-# define XPM_SNEK_2			"./assets/sprites/xpm/snake_right2.xpm"
-# define XPM_SNEK_3			"./assets/sprites/xpm/snake_right3.xpm"
+# define XPM_SNEK_0			"./assets/sprites/xpm/snakeright0.xpm"
+# define XPM_SNEK_1			"./assets/sprites/xpm/snakeright1.xpm"
+# define XPM_SNEK_2			"./assets/sprites/xpm/snakeright2.xpm"
+# define XPM_SNEK_3			"./assets/sprites/xpm/snakeright3.xpm"
 
-/* typedef struct s_img
-{
-    void	*mlx_img;
-    char	*addr;
-    int		bpp; //bits per pixel
-    int		line_len;
-    int		endian;
-}	t_img; */
+typedef struct	s_img {
+	void	*mlx_img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}	t_img;
 
-typedef struct s_map
+typedef struct s_mapd
 {
 	char	**map;
-	int		maprows; /* bits per pixel */
+	int		maprows;
 	int		mapcols;
-}	t_map;
+	int		coll_check;
+	int		exit_check;
+	int		play_check;
+	int		p_pos_x;
+	int 	p_pos_y;
+}	t_mapd;
 
 typedef struct s_sprite
 {
@@ -149,43 +101,34 @@ typedef struct s_data
 {
 	void		*mlx_ptr; // MLX pointer
 	void		*win_ptr; // MLX window pointer
-	//int			spr_size;
 	//void		*textures[5]; // MLX image pointers (on the stack)
-	t_map		map; // Map pointer (contains map details - preferably kept on the stack)
+	t_mapd		map_details; // Map pointer (contains map details - preferably kept on the stack)
 	t_sprite	sprites;
-	int			width;
-	int			height;
+	int			spr_size;
+	int			movement;
 	//t_img	img; //temp, ab blog
 }	t_data;
 
-/* typedef struct s_rect
-{
-    int	x;
-    int	y;
-    int width;
-    int height;
-    int color;
-}	t_rect; */
-
-//utils.c
-int		on_destroy(t_data *data);
-//void	img_pix_put(t_img *img, int x, int y, int color);
-int		load_assets(t_data *data);
-void	init_assets(t_data *data);
-
-//rendering.c
-//void	render_background(t_img *img, int color);
-//int render_rect(t_img *img, t_rect rect);
-//int	render(t_data *data);
-
-//keys.c
-int	handle_keypress(int keysym);
-int	handle_keyrelease(int keysym, t_data *data);
-
-//utils_map
-void	display_maplines(char *line, t_data *data, int lines);
-int	display_mapfull(t_data *data);
-void	populate_map(int linecount, char *map, t_data *data);
-int	read_ber(char *map, t_data *data);
-
+void	check_args(int argc, char *argv);
+t_data	initialize_gdata(t_data *gdata);
+void	initialize_mlx(t_data *gdata);
+void	quit_message(t_data *gdata, char *error_msg);
+void	map_load(char *ber_file, t_data *gdata);
+int		read_ber(char *ber_file);
+int		fill_map(char *ber_file, t_data *gdata);
+void	load_xpm(t_data *gdata);
+int		render_xpm(t_data *gdata);
+void	rendering(t_data *gdata);
+int		key_press(int keysym, t_data *gdata);
+int		key_release(int keysym, t_data *gdata);
+int		on_quit(t_data *gdata);
+void 	on_destroy(t_data *gdata);
+void	remove_xpm(t_data *gdata);
+void	remove_map(t_data *gdata);
+void	run_mlx(t_data *gdata);
+void	background_layer(t_data *gdata);
+void	update_player_pos(t_data *gdata, int horizontal, int length);
+void	player_spr(t_data *gdata);
+void	gather_elements(t_data *gdata);
+void	check_elements(t_data *gdata);
 #endif

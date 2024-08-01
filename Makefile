@@ -25,9 +25,14 @@ NAME-MLX			= $(MLXDIR)libmlx.a
 
 ## Sources & headers & others
 SRC-SL				= ./src/so_long.c \
+						./src/initial.c \
+						./src/map_load.c\
 						./src/utils.c \
-						./src/utils_map.c \
-						./src/keys.c \
+						./src/rendering_load.c\
+						./src/keys2.c\
+						./src/run.c\
+						./src/player.c\
+						./src/map_check.c\
 
 HEADER				= ./src/
 

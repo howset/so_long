@@ -71,6 +71,7 @@ SRC					= $(DIR_FPF)ft_printf.c \
 					$(DIR_LFT)ft_lstmap.c \
 					$(DIR_LFT)ft_lstnew.c \
 					$(DIR_LFT)ft_lstsize.c \
+					$(DIR_LFT)ft_strncpy.c \
 
 OBJ					= $(SRC:.c=.o)
 

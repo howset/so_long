@@ -6,74 +6,22 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 17:28:53 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/07/26 19:54:22 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/07/31 15:04:43 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-/* int	main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
-	// check args --> send to error check function, maybe in new file
-	if (argc != 2)
-		ft_putchar_fd("Invalid number of arguments.\n", 2);
+	t_data	gdata;
 	
-	
-	// check map --> together with check args? or not?
-	// initialize window --> in a different file?
-	
-} */
-
-/* int	main(void)
-{
-	t_data	data;
-
-	data.mlx_ptr = mlx_init();
-	if (data.mlx_ptr == NULL)
-		return (1);
-	data.win_ptr = mlx_new_window(data.mlx_ptr, WIN_WIDTH, WIN_HEIGHT, "So long");
-	if (data.win_ptr == NULL)
-	{
-		free(data.win_ptr);
-		return (1);
-	}
-	data.img.mlx_img = mlx_new_image(data.mlx_ptr, WIN_WIDTH, WIN_HEIGHT);
-	data.img.addr = mlx_get_data_addr(data.img.mlx_img, &data.img.bpp,
-			&data.img.line_len, &data.img.endian);
-	//data.spr_size = SPR_HEIGHT;
-	mlx_loop_hook(data.mlx_ptr, &render, &data);
-	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &data); 
-	mlx_hook(data.win_ptr, KeyRelease, KeyReleaseMask, &handle_keyrelease, &data);
-	mlx_hook(data.win_ptr, DestroyNotify, StructureNotifyMask, &on_destroy, &data);
-	mlx_loop(data.mlx_ptr);
-	//mlx_destroy_image(data.mlx_ptr, data.img.mlx_img);
-	mlx_destroy_display(data.mlx_ptr);
-	free(data.mlx_ptr);
-}
-*/
-
-int	main(void)
-{
-	t_data	data;
-
-	data.mlx_ptr = mlx_init();
-	if (data.mlx_ptr == NULL)
-		return (1);
-	init_assets(&data);
-	read_ber("assets/maps/map1a.ber", &data);
-	data.win_ptr = mlx_new_window(data.mlx_ptr, (data.map.mapcols) * 64, (data.map.maprows) * 64, "So long");
-	if (data.win_ptr == NULL)
-	{
-		free(data.win_ptr);
-		return (1);
-	}
-	//display_mapfull(&data);
-	mlx_loop_hook(data.mlx_ptr, &display_mapfull, &data);
-	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &data); 
-	mlx_hook(data.win_ptr, KeyRelease, KeyReleaseMask, &handle_keyrelease, &data);
-	mlx_hook(data.win_ptr, DestroyNotify, StructureNotifyMask, &on_destroy, &data);
-	mlx_loop(data.mlx_ptr);
-	//mlx_destroy_image(data.mlx_ptr, data.img.mlx_img);
-	mlx_destroy_display(data.mlx_ptr);
-	free(data.mlx_ptr);
+	check_args(argc, argv[1]);
+	initialize_gdata(&gdata);
+	map_load(argv[1], &gdata);
+	check_elements(&gdata);
+	initialize_mlx(&gdata);
+	rendering(&gdata);
+	run_mlx(&gdata);
+	return (0);
 }

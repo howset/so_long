@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_check.c                                        :+:      :+:    :+:   */
+/*   map_check1.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 14:38:35 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/08/01 13:27:11 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/08/01 17:26:52 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	gather_elements(t_data *gdata)
 		j = 0;
 		while (j < gdata->map_details.mapcols)
 		{
-			if (!ft_strchr("CEP01S",gdata->map_details.map[i][j]))
+			if (!ft_strchr("CEP01S", gdata->map_details.map[i][j]))
 				quit_message(gdata, "Error\nInvalid map element.");
 			if (gdata->map_details.map[i][j] == PLAY)
 				gdata->map_details.play_check += 1;

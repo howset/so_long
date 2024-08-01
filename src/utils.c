@@ -6,49 +6,71 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 16:22:37 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/07/26 18:47:35 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/07/31 14:38:32 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int on_destroy(t_data *data)
+// remove map array (and free, and set to null)
+void	remove_map(t_data *gdata)
 {
-	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-	data->win_ptr = NULL;
+	int	i;
+
+	i = 0;
+	if (gdata->map_details.map == NULL)
+		return ;
+	while (gdata->map_details.map[i])
+	{
+		free(gdata->map_details.map[i]);
+		gdata->map_details.map[i] = NULL;
+		i++;
+	}
+	free(gdata->map_details.map);
+	gdata->map_details.map = NULL;
+}
+
+// remove xpm images (destroy)
+void	remove_xpm(t_data *gdata)
+{
+	if (gdata->sprites.wall)
+		mlx_destroy_image(gdata->mlx_ptr, gdata->sprites.wall);
+	if (gdata->sprites.floo)
+		mlx_destroy_image(gdata->mlx_ptr, gdata->sprites.floo);
+	if (gdata->sprites.coll)
+		mlx_destroy_image(gdata->mlx_ptr, gdata->sprites.coll);
+	if (gdata->sprites.exit)
+		mlx_destroy_image(gdata->mlx_ptr, gdata->sprites.exit);
+	if (gdata->sprites.play)
+		mlx_destroy_image(gdata->mlx_ptr, gdata->sprites.play);
+	if (gdata->sprites.snek)
+		mlx_destroy_image(gdata->mlx_ptr, gdata->sprites.snek);
+}
+
+// basic func to remove map, xpm, and destroy window & display
+void on_destroy(t_data *gdata)
+{
+	if (!gdata)
+		return ;
+	remove_xpm(gdata);
+	remove_map(gdata);
+	mlx_destroy_window(gdata->mlx_ptr, gdata->win_ptr);
+	mlx_destroy_display(gdata->mlx_ptr);
+	free(gdata->mlx_ptr);
+}
+
+// just on_destroy, but returns int
+int	on_quit(t_data *gdata)
+{
+	on_destroy(gdata);
+	exit(0);
 	return (0);
 }
 
-/* void	img_pix_put(t_img *img, int x, int y, int color)
+// calls on_destroy, and write error message
+void	quit_message(t_data *gdata, char *error_msg)
 {
-	char	*pixel;
-
-	pixel = img->addr + (y * img->line_len + x * (img->bpp / 8));
-	*(int *)pixel = color;
-} */
-
-int	load_assets(t_data *data)
-{
-	data->sprites.wall = mlx_xpm_file_to_image(data->mlx_ptr, \
-	XPM_WALL, &data->width, &data->height);
-	data->sprites.floo = mlx_xpm_file_to_image(data->mlx_ptr, \
-	XPM_FLOO, &data->width, &data->height);
-	data->sprites.coll = mlx_xpm_file_to_image(data->mlx_ptr, \
-	XPM_COLL_0, &data->width, &data->height);
-	data->sprites.exit = mlx_xpm_file_to_image(data->mlx_ptr, \
-	XPM_EXIT, &data->width, &data->height);
-	data->sprites.play = mlx_xpm_file_to_image(data->mlx_ptr, \
-	XPM_PLAY_DOWN_0, &data->width, &data->height);
-	return (0);
-}
-
-void	init_assets(t_data *data)
-{
-	data->height = SPR_HEIGHT;
-	data->width = SPR_WIDTH;
-	/* data->current_frame = 0;
-	data->player.player_idle_right_1 = mlx_xpm_file_to_image(game->mlx, \
-	"assets/player_idle_right_1.xpm", &game->width, &game->height); */
-	if (load_assets(data) == 1)
-		write(1, "failed to open the image\n", 25);
+	on_destroy(gdata);
+	ft_putendl_fd(error_msg, STDERR_FILENO);
+	exit(1);
 }

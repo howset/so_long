@@ -6,7 +6,7 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 15:40:13 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/08/01 17:04:03 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/08/01 17:32:14 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ void	map_check_ff(t_data *gdata)
 	}
 	ex_pos(gdata);
 	flood_fill(gdata, p_row, p_col, visited);
-	i = visited[p_row][p_col] && visited[gdata->map_details.ex_pos_y][gdata->map_details.ex_pos_x];
+	i = visited[p_row][p_col] && \
+	visited[gdata->map_details.ex_pos_y][gdata->map_details.ex_pos_x];
 	free_visited(visited, gdata);
 	if (gdata->map_details.coll_ff != gdata->map_details.coll_check || !i)
 		quit_message(gdata, "Error\nMap has no valid path.");
@@ -106,5 +107,3 @@ int	validmove(t_data *gdata, int **visited, int y, int x)
 {
 	return (gdata->map_details.map[y][x] != '1' && !visited[y][x]);
 }
-
-

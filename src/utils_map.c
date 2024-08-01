@@ -6,7 +6,7 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 14:51:20 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/07/26 18:46:21 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/07/29 15:12:23 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,11 @@ void	populate_map(int linecount, char *map, t_data *data)
 	//game->moves = 0;
 	//game->player_position = 0;
 	data->map.map = malloc(sizeof(char *) * (linecount + 1));
+	for (i = 0; i <= linecount; i++) {
+		data->map.map[i] = NULL; // Initialize all pointers to NULL
+	}
 	data->map.map[0] = get_next_line(file);
-	i = 1;
+	i = 0;
 	while (i < linecount)
 	{
 		data->map.map[i] = get_next_line(file);
