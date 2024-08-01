@@ -6,7 +6,7 @@
 /*   By: hsetya <hsetya@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 12:36:52 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/08/01 22:58:43 by hsetya           ###   ########.fr       */
+/*   Updated: 2024/08/01 23:31:44 by hsetya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,6 @@ void	on_destroy(t_data *gdata);
 void	remove_xpm(t_data *gdata);
 void	remove_map(t_data *gdata);
 //utilities.c
-char	*remove_trailing(char *s1, char const *set);
+char	*remove_trailing(char *c, char const *str);
 void	free_visited(int **visited, t_data *gdata);
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: hsetya <hsetya@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 23:24:00 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/08/01 21:03:31 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/08/01 23:33:53 by hsetya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	tile_check(t_data *gdata)
 	{
 		gdata->map_details.map[gdata->map_details.pl_pos_y]
 		[gdata->map_details.pl_pos_x] = FLOO;
-		gdata->map_details.coll_check -= 1;
+		gdata->map_details.coll_check--;
 		return ;
 	}
 	if (gdata->map_details.map[gdata->map_details.pl_pos_y]
@@ -94,7 +94,7 @@ void	player_spr(t_data *gdata)
 	gdata->map_details.pl_pos_y);
 	mlx_put_image_to_window(gdata->mlx_ptr, gdata->win_ptr,
 		gdata->sprites.move, 0, 0);
-	gdata->movement += 1;
+	gdata->movement++;
 	moves = ft_itoa(gdata->movement - 1);
 	movement = "Moves:";
 	mlx_string_put(gdata->mlx_ptr, gdata->win_ptr, 15, 25, 1, movement);
