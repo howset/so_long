@@ -6,7 +6,7 @@
 /*   By: hsetyamu <hsetyamu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 23:24:00 by hsetyamu          #+#    #+#             */
-/*   Updated: 2024/08/01 16:49:30 by hsetyamu         ###   ########.fr       */
+/*   Updated: 2024/08/01 21:23:16 by hsetyamu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	tile_check(t_data *gdata)
 		[gdata->map_details.pl_pos_x] == EXIT
 		&& gdata->map_details.coll_check == 0)
 	{
-		ft_printf("Win!\nHad lunch and now at home!!\n");
+		ft_printf("\nWin!\nHad lunch and now at home!!\n");
 		on_quit(gdata);
 	}
 }
@@ -82,17 +82,14 @@ void	tile_check(t_data *gdata)
 void	player_spr(t_data *gdata)
 {
 	char	*moves;
-	char	*movement;
 
 	mlx_put_image_to_window(gdata->mlx_ptr, gdata->win_ptr, gdata->sprites.play,
 		SPR_SIZE * gdata->map_details.pl_pos_x, \
 		SPR_SIZE * gdata->map_details.pl_pos_y);
 	mlx_put_image_to_window(gdata->mlx_ptr, gdata->win_ptr,
-		gdata->sprites.move, 0, 0);
+		gdata->sprites.wall, 0, 0);
 	gdata->movement += 1;
 	moves = ft_itoa(gdata->movement - 1);
-	movement = "Moves:";
-	mlx_string_put(gdata->mlx_ptr, gdata->win_ptr, 15, 25, 1, movement);
-	mlx_string_put(gdata->mlx_ptr, gdata->win_ptr, 30, 40, 1, moves);
+	ft_printf("\rMoves: %s", moves);
 	free(moves);
 }

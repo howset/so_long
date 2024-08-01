@@ -45,7 +45,7 @@ valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose -
 	- Valid elements: 1 P, 1 E, >1 C, other chars.
 	- Rectangle
 	- Closed by walls
-	- Valid path (flood fill)
+	- FF
 ```
 valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./so_long assets/maps/test/map-valid-to_edit.ber
 ```
@@ -53,7 +53,7 @@ valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose -
 ### Notes (Mandatory)
 - Destroy function to terminate is critical!! Otherwise there are always leaks or errors.
 - Mandatory part can accept Enemy Patrol characters if the element is present on map though does not do anything about it.
-- Prints movement already on screen instead of on terminal, because it requires only 2 lines of code.
+- ~~Prints movement already on screen instead of on terminal, because it requires only 2 lines of code.~~ Print on terminal in case evaluation needs it.
 - Exit tile is walkable, just because.
 - Ninja adv pack (https://pixel-boy.itch.io/ninja-adventure-asset-pack)
 - Sprite cutter (https://ezgif.com/sprite-cutter)
@@ -63,4 +63,6 @@ valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose -
 ## Bonus
 
 ### Notes (Bonus)
-- Snek now animates!!
+- Snek, cow, and player now animates!!
+- If player touches snek, player dies.
+- Print movement on screen.
