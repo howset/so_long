@@ -5,40 +5,44 @@
 
 ### Shortcuts (Mandatory)
 
+```
+valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt <executable> <args>
+```
+
 - 0 arg
 ```
-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./so_long
+./so_long
 ```
 
 - \>1 arg
 ```
-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./so_long assets/maps/valids/map1.ber assets/maps/valids/map4.ber
+./so_long assets/maps/valids/map1.ber assets/maps/valids/map4.ber
 ```
 
 - non-existent arg
 ```
-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./so_long nonexistent_file.ber
+./so_long nonexistent_file.ber
 ```
 
 - invalid extension
 ```
-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./so_long assets/maps/test/map-invalid-extension
+./so_long assets/maps/test/map-invalid-extension
 ```
 
 -------
 - empty file
 ```
-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./so_long assets/maps/test/map-empty.ber
+./so_long assets/maps/test/map-empty.ber
 ```
 
 - small map (row)
 ```
-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./so_long assets/maps/test/map-smallrows.ber
+./so_long assets/maps/test/map-smallrows.ber
 ```
 
 - small map (col)
 ```
-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./so_long assets/maps/test/map-smallcols.ber
+./so_long assets/maps/test/map-smallcols.ber
 ```
 
 -------
@@ -48,7 +52,7 @@ valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose -
 	- Closed by walls
 	- FF
 ```
-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./so_long assets/maps/test/map-valid-to_edit.ber
+./so_long assets/maps/test/map-valid-to_edit.ber
 ```
 
 ### Notes (Mandatory)
