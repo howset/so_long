@@ -3,57 +3,25 @@
 ## Mandatory
 ![Mandatory](./assets/scr_sht/screen1.png "mandatory")
 
-### Shortcuts (Mandatory)
+### Checks (Mandatory)
 
 ```
 valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt <executable> <args>
 ```
 
 - 0 arg
-```
-./so_long
-```
-
 - \>1 arg
-```
-./so_long assets/maps/valids/map1.ber assets/maps/valids/map4.ber
-```
-
 - non-existent arg
-```
-./so_long nonexistent_file.ber
-```
-
 - invalid extension
-```
-./so_long assets/maps/test/map-invalid-extension
-```
-
--------
 - empty file
-```
-./so_long assets/maps/test/map-empty.ber
-```
-
 - small map (row)
-```
-./so_long assets/maps/test/map-smallrows.ber
-```
-
 - small map (col)
-```
-./so_long assets/maps/test/map-smallcols.ber
-```
-
--------
 - everything else. Edit map file on the fly. 
 	- Valid elements: 1 P, 1 E, >1 C, other chars.
 	- Rectangle
 	- Closed by walls
 	- FF
-```
-./so_long assets/maps/test/map-valid-to_edit.ber
-```
+
 
 ### Notes (Mandatory)
 - Destroy function to terminate is critical!! Otherwise there are always leaks or errors.
@@ -70,7 +38,7 @@ valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose -
 
 ### Notes (Bonus)
 - Collectible is now cow.
-- Snek, cow, and player now animates!!
+- Snek, cow, and player now animates.
 - If player touches snek, player dies.
 - Print movements on screen.
 
