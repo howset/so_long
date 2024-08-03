@@ -56,13 +56,13 @@ So the evaluation was not accompanied by slides this time, for two main reasons,
 
 1. It was actually quite helpful to tackle the project into several parts. The first one was the initial check, i.e. parsing arguments. At this point nothing was done except error control on invalid arguments (no args, too many args, map file nonexistent, etc) or invalid text files (wrong extension, map file has no line, map too small, etc)
 
-2. After passing that step, the next one is loading the map. Here the struct is initialized, not sure if it was a good idea to actually initialize everything as NULL or zero, but I did it anyway. Then the map is loaded along with dealing with other *things*, like the number of rows, number of columns (potential pitfall: map text file may be lf terminated, or crlf terminated), # of elements ('PCE'), and most importantly, store the map array line by line (use gnl).
+2. After passing that step, the next one is loading the map. Here the struct is initialized, not sure if it was a good idea to actually initialize everything as NULL or zero, but I did it anyway. Then the map is loaded along with dealing with other *things*, like the number of rows, number of columns (potential pitfall: map text file may be ```lf``` terminated, or ```crlf``` terminated, check vscode bottom right), # of elements ('PCE'), and most importantly, store the map array line by line (use gnl).
 
 3. The third step was another control, to check the content of the map (array), this time for the e.g. number of elements ('P' = 1, 'E' = 1, 'C' > 1), check if map is rectangle, closed by walls ('1'), or solvable map (valid path -> use flood fill). 
 
 At this point, all of these steps makes it easier to properly exit the program cleanly, due to how the termination (function) works. If the first step must exit, nothing was needed to be done except writing error message. At second step, since the struct was already initiated, and some *variables* are already filled, the termination must clean the struct to avoid leaks. The third step is similar to the second, but debugging was supported by verbose error messages.
 
-4. Passing all those steps, the fourth one is initialize the mlx, now here the mlx pointer come into existence, along with the window pointer as well, but not including the hooks.
+4. Passing all those steps, the fourth one is initialize the mlx. Now here the mlx pointer come into existence, along with the window pointer as well, but not including the hooks.
 
 5. Then rendering is declared. The rendering step first loads the sprites (& store them in the struct). Then actually renders them to the window (mlx_put_image_to_window) by parsing the map array line-by-line for each element. The player 'P' is handled separately which requires another file all for the player functionality.
 
@@ -79,10 +79,10 @@ Now if anything happens and termination should occur, everything has to be "remo
 
 9. Printing movement on screen was trivial as well, just replace the line that prints movement to shell with mlx_string_put. Some display adjustments was necessary though.
 
-10. The animation display was achieved by loading different sprites (xpms) and declaring an int variable (frame) that increments and hooked to the loop. Every increment of the frame calls to a function that displays a different sprite for an animated look.
+10. The animation display was achieved by loading different sprites (xpms) and declaring an int variable (frame) that increments and hooked to the loop. Each increment of the frame calls a function that displays a different sprite for an animated look.
 
-Some things that I tried but was not done/successful:
+Some things that I tried/considered but was not done/successful:
 1. Changing player sprite according to directions. Facing left, right, up, down. The sprites I already have, but I decided against having it to avoid a bloated project.
 2. Movement of enemy patrol for the same reason and I think that (may) require another step of effort which was not very beneficial.
 3. Animating player when collecting stuffs or change the exit tile when exiting the map was permittable (all stuffs are collected), but again, does not seem very beneficial to do.
-4. Having layers. I first tried just pushing/putting a transparent player xpm over a floor tile, but it ended up just covering the floor tile with the transparent part of the player xpm being rendered as an opaque black. There is a trick to this as explained by pulgamecanica's blog, but it seems to be too much work to do. Here every pixel of the player xpm has to be read, interpreted as transparent, then "pushed" to the floor tile. I decided to just make every xpm that I use has a floor background (manual work in GIMP), so in the end I only have one "layer" of images/display. 
+4. Having layers. I first tried just pushing/putting a transparent xpm over a floor tile, but it ended up just covering the floor tile with the transparent part of the player xpm being rendered as an opaque black. There is a trick to this as explained by pulgamecanica's blog, but it seems to be too much work to do. Here every pixel of the player xpm has to be read, interpreted as transparent, then "pushed" to the floor tile. I decided to just make every xpm that I use has a floor background (manual work in GIMP), so in the end I only have one "layer" of images/display. 
