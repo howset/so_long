@@ -58,7 +58,7 @@ So the evaluation was not accompanied by slides this time, for two main reasons,
 
 2. After passing that step, the next one is loading the map. Here the struct is initialized, not sure if it was a good idea to actually initialize everything as NULL or zero, but I did it anyway. Then the map is loaded along with dealing with other *things*, like the number of rows, number of columns (potential pitfall: map text file may be ```lf``` terminated, or ```crlf``` terminated, check vscode bottom right), # of elements ('PCE'), and most importantly, store the map array line by line (use gnl).
 
-3. The third step was another control, to check the content of the map (array), this time for the e.g. number of elements ('P' = 1, 'E' = 1, 'C' > 1), check if map is rectangle, closed by walls ('1'), or solvable map (valid path -> use flood fill). 
+3. The third step was another control, to check the content of the map (array), this time for the e.g. number of elements ('P' = 1, 'E' = 1, 'C' > 1), check if map is rectangle, closed by walls ('1'), or solvable map (valid path -> use flood fill, this is a problem of its own). 
 
 At this point, all of these steps makes it easier to properly exit the program cleanly, due to how the termination (function) works. If the first step must exit, nothing was needed to be done except writing error message. At second step, since the struct was already initiated, and some *variables* are already filled, the termination must clean the struct to avoid leaks. The third step is similar to the second, but debugging was supported by verbose error messages.
 
