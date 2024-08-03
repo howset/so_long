@@ -70,6 +70,8 @@ At this point, all of these steps makes it easier to properly exit the program c
 
 Now if anything happens and termination should occur, everything has to be "removed" including the mlx and window pointers **and** the sprites (xpms). This ensures a clean termination.
 
+There is a weird thing going on in my system where the graphics turned to all black if brought back from minimizing. A workaround that I found was adding a line in `run_mlx` (`mlx_hook(gdata->win_ptr, Expose, ExposureMask, rendering, gdata);`). This was an emergency measure, that works in maintaining graphic display post minimize, but there are problems regarding leaks (and other things). Luckily no such problem was encountered in the cluster's computers, so this line is removed during evaluation (push version).
+
 7. The bonus part only requires three additional things to do, namely:
 	1. Termination when touching enemy patrol.
 	2. Writing movement on screen.
