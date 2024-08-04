@@ -34,7 +34,7 @@ valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose -
 
 
 ## Bonus
-![Bonus](./assets/scr_sht/screen2.gif  | width=1216 "bonus")
+![Bonus](./assets/scr_sht/screen2.gif "bonus" | width=1216)
 
 ### Notes (Bonus)
 - Collectible is now cow.
