@@ -45,6 +45,9 @@ valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose -
 ## Retrospective Notes
 
 ### Preface
+
+**push_version is final version!**
+
 I write this only while things are still fresh in my head. I dont think I will read them again anyway, just like the other ones. 
 
 I was at the start contemplating whether to do FdF or so_long. FdF seems very cool, but while doing preliminary research, I found out amazing pixely cow pictures that I really wanted to use (ended up using something else though). So I decided to do so_long.
